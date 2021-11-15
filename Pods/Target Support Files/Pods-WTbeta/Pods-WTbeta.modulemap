@@ -1,0 +1,6 @@
+framework module Pods_WTbeta {
+  umbrella header "Pods-WTbeta-umbrella.h"
+
+  export *
+  module * { export * }
+}
