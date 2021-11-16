@@ -61,7 +61,7 @@ struct WTbetaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LaunchView()
         }
     }
 }

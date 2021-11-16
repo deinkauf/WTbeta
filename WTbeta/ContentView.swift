@@ -6,15 +6,29 @@
 //
 
 import SwiftUI
+import FirebaseEmailAuthUI
 
 struct ContentView: View {
+    
+    @Binding var loggedIn: Bool
+    
     var body: some View {
-        Text("Waggin' Tails")
+        
+        VStack(spacing: 10) {
+            Text("Succesfully logged in to Waggin' Tails App")
+            Button {
+                try! FUIAuth.defaultAuthUI()?.signOut()
+                loggedIn = false
+            } label: {
+                Text("sign out")
+            }
+
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(loggedIn: .constant(true))
     }
 }

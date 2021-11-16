@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		092A36F62744368A0017A51E /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A36F52744368A0017A51E /* LoginForm.swift */; };
+		092A36F827443D960017A51E /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A36F727443D960017A51E /* LaunchView.swift */; };
 		09B14E0327416975006E2E48 /* WTbetaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B14E0227416975006E2E48 /* WTbetaApp.swift */; };
 		09B14E0527416975006E2E48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B14E0427416975006E2E48 /* ContentView.swift */; };
 		09B14E0727416975006E2E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B14E0627416975006E2E48 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		092A36F52744368A0017A51E /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
+		092A36F727443D960017A51E /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		09B14DFF27416975006E2E48 /* WTbeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WTbeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B14E0227416975006E2E48 /* WTbetaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTbetaApp.swift; sourceTree = "<group>"; };
 		09B14E0427416975006E2E48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				09B14E1027416FB9006E2E48 /* GoogleService-Info.plist */,
 				09B14E0827416975006E2E48 /* Preview Content */,
 				092A36F52744368A0017A51E /* LoginForm.swift */,
+				092A36F727443D960017A51E /* LaunchView.swift */,
 			);
 			path = WTbeta;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B14E0527416975006E2E48 /* ContentView.swift in Sources */,
+				092A36F827443D960017A51E /* LaunchView.swift in Sources */,
 				092A36F62744368A0017A51E /* LoginForm.swift in Sources */,
 				09B14E0327416975006E2E48 /* WTbetaApp.swift in Sources */,
 			);
