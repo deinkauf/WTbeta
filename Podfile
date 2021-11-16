@@ -7,5 +7,7 @@ target 'WTbeta' do
 
   # Pods for WTbeta
   pod 'Firebase/Firestore'
-
+  pod 'Firebase/Auth'
+  pod 'FirebaseUI/Auth'
+  pod 'FirebaseUI/Email'
 end
