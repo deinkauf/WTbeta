@@ -1,5 +1,5 @@
 //
-//  LoginForm.swift
+//  CreateAccountForm.swift
 //  WTbeta
 //
 //  Created by Donovan Einkauf on 11/16/21.
@@ -8,13 +8,14 @@
 import SwiftUI
 import FirebaseAuth
 
-struct LoginForm: View {
+struct CreateAccountForm: View {
+    
+    @Binding var createAccountFormShowing: Bool
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var username: String = ""
     @State private var errorMessage: String?
-    
-    @Binding var loginFormShowing: Bool
     
     var body: some View {
         NavigationView {
@@ -22,6 +23,7 @@ struct LoginForm: View {
                 
                 Section {
                     TextField("Email", text: $email)
+                    TextField("Username", text: $username)
                     SecureField("Password", text: $password)
                 }
                 
@@ -33,29 +35,27 @@ struct LoginForm: View {
                 }
                 
                 Button {
-                    //perform login
-                    signIn()
+                    //perform create account
+                    createAccount()
                 } label: {
                     
                     HStack {
                         Spacer()
-                        Text("Sign in")
+                        Text("Create Account")
                         Spacer()
                     }
                 }
             }
-            .navigationTitle("Sign In")
+            .navigationTitle("Create Account")
         }
     }
     
-    func signIn() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+    func createAccount() {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
             
-            // triggers changes in view code so put on main thread
             DispatchQueue.main.async {
                 if error == nil {
-                    // dismiss this sheet
-                    loginFormShowing = false
+                    createAccountFormShowing = false
                 } else {
                     errorMessage = error!.localizedDescription
                 }
@@ -64,8 +64,8 @@ struct LoginForm: View {
     }
 }
 
-struct LoginForm_Previews: PreviewProvider {
+struct CreateAccountForm_Previews: PreviewProvider {
     static var previews: some View {
-        LoginForm(loginFormShowing: .constant(true))
+        CreateAccountForm(createAccountFormShowing: .constant(true))
     }
 }

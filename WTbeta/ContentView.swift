@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseEmailAuthUI
+import FirebaseAuth
 
 struct ContentView: View {
     
@@ -17,7 +17,7 @@ struct ContentView: View {
         VStack(spacing: 10) {
             Text("Succesfully logged in to Waggin' Tails App")
             Button {
-                try! FUIAuth.defaultAuthUI()?.signOut()
+                try! Auth.auth().signOut()
                 loggedIn = false
             } label: {
                 Text("sign out")
