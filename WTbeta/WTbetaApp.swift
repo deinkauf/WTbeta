@@ -18,24 +18,32 @@ struct WTbetaApp: App {
     }
     
     func addUserToDB() {
+        // Reference to the cloud firestore database
         let db = Firestore.firestore()
         
+        // Reference to the users collection
+        // Will be created if one does not already exist
         let usersColRef = db.collection("users")
         
+        // Create a document within the users collection
         let userDocRef = usersColRef.document("xcodeUser")
         
+        // Provide a document with the given^ "xcodeuser" identifier
         userDocRef.setData(["name" : "xcodeUserName", "usersDogs" : []])
         
+        // retrieving the reference path of the user for future use in the dog object
         let userDocRefPath = db.document(userDocRef.path)
         
         let dogsColRef = db.collection("dogs")
         
         let dogDocRef = dogsColRef.document("xcodeDog")
         
+        // Assigning the fields (name and owner) of a specific dog, "xcodeDog" in the "dogs" collection
         dogDocRef.setData(["name" : "xcodeDogName", "owner" : userDocRefPath])
         
         let dogDocRefPath = db.document(dogDocRef.path)
         
+        // Updating the user data by "appending" the reference path of the created Dog object to the usre's list of dogs
         userDocRef.updateData(
             ["usersDogs" : FieldValue.arrayUnion([dogDocRefPath])]
         )

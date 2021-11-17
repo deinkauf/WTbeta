@@ -37,6 +37,7 @@ struct ContentView: View {
         if let currentUser = Auth.auth().currentUser {
             let db = Firestore.firestore()
             let userDoc = db.collection("users").document(currentUser.uid)
+            // Read Data and Handle errors
             userDoc.getDocument { snapshot, error in
                 if let error = error {
                     print(error.localizedDescription)
