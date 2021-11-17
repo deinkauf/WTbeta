@@ -28,7 +28,7 @@ struct LoginForm: View {
                 // section to display error message
                 if errorMessage != nil {
                     Section {
-                        Text(errorMessage!)
+                        Text(errorMessage!).foregroundColor(.red)
                     }
                 }
                 

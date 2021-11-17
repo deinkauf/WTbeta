@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseAuth
+import Firebase
 
 struct CreateAccountForm: View {
     
@@ -14,7 +15,7 @@ struct CreateAccountForm: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
-    @State private var username: String = ""
+    @State private var name: String = ""
     @State private var errorMessage: String?
     
     var body: some View {
@@ -23,14 +24,14 @@ struct CreateAccountForm: View {
                 
                 Section {
                     TextField("Email", text: $email)
-                    TextField("Username", text: $username)
+                    TextField("Name", text: $name)
                     SecureField("Password", text: $password)
                 }
                 
                 // section to display error message
                 if errorMessage != nil {
                     Section {
-                        Text(errorMessage!)
+                        Text(errorMessage!).foregroundColor(.red)
                     }
                 }
                 
@@ -55,11 +56,23 @@ struct CreateAccountForm: View {
             
             DispatchQueue.main.async {
                 if error == nil {
+                    
+                    createUserDoc()
                     createAccountFormShowing = false
                 } else {
                     errorMessage = error!.localizedDescription
                 }
             }
+        }
+    }
+    
+    func createUserDoc() {
+        if let currentUser = Auth.auth().currentUser {
+            let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            let db = Firestore.firestore()
+            let userDoc = db.collection("users").document(currentUser.uid)
+            userDoc.setData(["name" : trimmedName, "usersDogs" : []])
         }
     }
 }
