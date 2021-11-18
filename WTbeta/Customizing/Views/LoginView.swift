@@ -153,12 +153,9 @@ struct LoginView: View {
                 //create new user doc
                 createUserDoc()
             }
-            //Save the User's Name
-            let user = Auth.auth().currentUser
-            let db = Firestore.firestore()
-            let ref = db.collection("users").document(user!.uid)
             
-            ref.setData(["name": firstName], merge: true)
+            //set ViewModel to loggedIn - changes view
+            model.checkLogin()
             
             // Navigate user to AddDogDetails View
         }
