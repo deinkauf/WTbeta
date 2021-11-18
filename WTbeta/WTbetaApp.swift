@@ -59,6 +59,12 @@ struct WTbetaApp: App {
         userDocRef.updateData(["defaultDogPark" : dogParkDocRefPath])
         
         checkInDog(dog: dogDocRef, dogPark: dogParkDocRef)
+        
+        // 11/17
+        let userDocRef_2 = usersColRef.document("tester2")
+        
+        userDocRef_2.setData(["name": "Tester2", "userDogs": []])
+        
     }
     
     func checkInDog (dog: DocumentReference, dogPark: DocumentReference) {
@@ -67,9 +73,16 @@ struct WTbetaApp: App {
         )
     }
     
+//    var body: some Scene {
+//        WindowGroup {
+//            LaunchView()
+//        }
+//    }
+    
     var body: some Scene {
         WindowGroup {
-            LaunchView()
+            CustomLaunchView()
+                .environmentObject(UserModel())
         }
     }
 }
