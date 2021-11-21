@@ -7,9 +7,10 @@
 
 import Foundation
 
+// makes sure all references are pointing to the correct current user's User() model
 class UserService {
     
-    //var user = User()
+    var user = User()
     
     static var shared = UserService()
     

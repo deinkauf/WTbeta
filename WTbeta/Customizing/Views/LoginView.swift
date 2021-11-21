@@ -133,8 +133,11 @@ struct LoginView: View {
                 self.errorMessage = nil
             }
             
+            // fetch user meta data
+            self.model.getUserData()
+            
             //set ViewModel to loggedIn - changes view
-            model.checkLogin()
+            self.model.checkLogin()
         }
     }
     
@@ -155,7 +158,7 @@ struct LoginView: View {
             }
             
             //set ViewModel to loggedIn - changes view
-            model.checkLogin()
+            self.model.checkLogin()
             
             // Navigate user to AddDogDetails View
         }
@@ -168,6 +171,11 @@ struct LoginView: View {
             let db = Firestore.firestore()
             let userDoc = db.collection("users").document(currentUser.uid)
             userDoc.setData(["name" : trimmedName, "userName": userName, "usersDogs" : []])
+            
+            // update user meta data
+            let user = UserService.shared.user
+            user.name = trimmedName
+            user.userName = userName
         }
     }
     

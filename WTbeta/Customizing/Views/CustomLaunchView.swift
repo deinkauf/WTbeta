@@ -21,7 +21,7 @@ struct CustomLaunchView: View {
             
             IntroTabView()
                 .onAppear {
-                    model.checkLogin()
+                    self.model.checkLogin()
                 }
             
         }
