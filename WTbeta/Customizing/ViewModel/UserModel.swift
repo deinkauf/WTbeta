@@ -84,7 +84,7 @@ class UserModel: ObservableObject {
         let dog = Dog()
         
         // Assigning the fields of the dog
-        dogDocRef.setData(["name" : dogsName, "owner" : userRef.path])
+        dogDocRef.setData(["name" : dogsName, "owner" : userRef])
         
         userRef.getDocument { snapshot, error in
             
@@ -95,12 +95,14 @@ class UserModel: ObservableObject {
             
             // add dog to users array
             userRef.updateData(
-                ["usersDogs" : FieldValue.arrayUnion([dogDocRef.path])]
+                ["usersDogs" : FieldValue.arrayUnion([dogDocRef])]
             )
             dog.name = dogsName
+            self.user.usersDogs = []
             self.user.usersDogs?.append(dog)
+            print(self.user.usersDogs?[0].name ?? "no dogs")
         }
-        print(self.user.usersDogs?[0] ?? "no dogs")
+        print(self.user.usersDogs?[0].name ?? "no dogs")
         self.updateUI.toggle()
     }
     
