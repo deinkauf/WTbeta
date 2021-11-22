@@ -97,11 +97,11 @@ class UserModel: ObservableObject {
             userRef.updateData(
                 ["usersDogs" : FieldValue.arrayUnion([dogDocRef])]
             )
-            dog.name = dogsName
-            self.user.usersDogs = []
-            self.user.usersDogs?.append(dog)
-            print(self.user.usersDogs?[0].name ?? "no dogs")
+            
         }
+        dog.name = dogsName
+        self.user.usersDogs = []
+        self.user.usersDogs?.append(dog)
         print(self.user.usersDogs?[0].name ?? "no dogs")
         self.updateUI.toggle()
     }
