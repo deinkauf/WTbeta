@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class UserModel: ObservableObject {
     
@@ -48,6 +49,7 @@ class UserModel: ObservableObject {
         // get meta data for that user
         let db = Firestore.firestore()
         let ref = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
         ref.getDocument { snapshot, error in
             
             // check theres no error
@@ -61,6 +63,33 @@ class UserModel: ObservableObject {
             self.user.userName = data?["userName"] as? String
             // TODO -- need to make a function that maps the firebase usersDogs array to users array
             //      -- will have to convert document reference paths to Dog objects and add them to array
+            if let userDocDogs = data?["usersDogs"] as? [DocumentReference] {
+                for dog in userDocDogs {
+                    
+                    
+                    dog.getDocument { snapshot1, error in
+                        
+                        // check theres no error
+                        guard error == nil, snapshot1 != nil else {
+                            return
+                        }
+                        let tempDog = Dog()
+                        // parse data out and set the user meta data
+                        let data1 = snapshot1?.data()
+                        tempDog.name = data1?["name"] as? String ?? ""
+                        tempDog.owner = UserService.shared.user
+                        print(tempDog.name)
+                        self.user.usersDogs.append(tempDog)
+                        print(self.user.usersDogs)
+                        self.updateUI.toggle()
+
+                    }
+                }
+            }
+            print("---------------  ----------------")
+//            print(userDocDogs)
+            print(self.user.usersDogs)
+            
             
             self.updateUI.toggle()
             
@@ -69,43 +98,81 @@ class UserModel: ObservableObject {
     
     // MARK -- Dog Data Methods
     
-    func addDog(dogsName: String) {
-        
-        // checked that theres logged in user
-        guard Auth.auth().currentUser != nil else {
-            return
-        }
-        
-        // create firebase dog document
-        let db = Firestore.firestore()
-        let dogsColRef = db.collection("dogs")
-        let dogDocRef = dogsColRef.document()
-        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+    func dogDocToMod(dogDoc: DocumentReference) -> Dog {
         let dog = Dog()
+        dog.name = dogDoc.value(forKey: "name") as? String ?? ""
+        dog.owner = self.user
+        return dog
+    }
+    
+    func createDog(name: String) {
         
-        // Assigning the fields of the dog
-        dogDocRef.setData(["name" : dogsName, "owner" : userRef])
+        // create local Dog model
+        let dog = Dog()
+        dog.name = name
+        dog.owner = self.user
         
+        // add it to local User
+        self.user.usersDogs.append(dog)
+        
+        // create DB Dog doc
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        let dogDoc = db.collection("dogs").addDocument(data: ["name": name, "owner": userRef])
+        
+        // add it to DB User doc
         userRef.getDocument { snapshot, error in
-            
+
             // check theres no error
             guard error == nil, snapshot != nil else {
                 return
             }
-            
+
             // add dog to users array
             userRef.updateData(
-                ["usersDogs" : FieldValue.arrayUnion([dogDocRef])]
+                ["usersDogs" : FieldValue.arrayUnion([dogDoc])]
             )
-            
         }
-        dog.name = dogsName
-        self.user.usersDogs = []
-        self.user.usersDogs?.append(dog)
-        print(self.user.usersDogs?[0].name ?? "no dogs")
+        print(self.user.usersDogs.last?.name ?? "no dogs")
         self.updateUI.toggle()
     }
     
+//    func addDog(dogsName: String) {
+//
+//        // checked that theres logged in user
+//        guard Auth.auth().currentUser != nil else {
+//            return
+//        }
+//
+//        // create firebase dog document
+//        let db = Firestore.firestore()
+//        let dogsColRef = db.collection("dogs")
+//        let dogDocRef = dogsColRef.document()
+//        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+//        let dog = Dog()
+//
+//        // Assigning the fields of the dog
+//        dogDocRef.setData(["name" : dogsName, "owner" : userRef])
+//
+//        userRef.getDocument { snapshot, error in
+//
+//            // check theres no error
+//            guard error == nil, snapshot != nil else {
+//                return
+//            }
+//
+//            // add dog to users array
+//            userRef.updateData(
+//                ["usersDogs" : FieldValue.arrayUnion([dogDocRef])]
+//            )
+//
+//        }
+//        dog.name = dogsName
+//        self.user.usersDogs = []
+//        self.user.usersDogs?.append(dog)
+//        print(self.user.usersDogs?[0].name ?? "no dogs")
+//        self.updateUI.toggle()
+//    }
     
     
 }

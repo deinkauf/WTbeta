@@ -16,7 +16,7 @@ struct CreateDogView: View {
         VStack {
             TextField("dog name", text: $dogsName)
             Button {
-                model.addDog(dogsName: dogsName)
+                model.createDog(name: dogsName)
             } label: {
                 Text("add dog")
             }

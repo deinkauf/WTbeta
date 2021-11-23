@@ -5,6 +5,8 @@
 //  Created by Donovan Einkauf on 11/14/21.
 //
 
+
+
 import SwiftUI
 import FirebaseAuth
 import Firebase
@@ -19,7 +21,7 @@ struct CustomContentView: View {
             VStack(spacing: 10) {
                 
                 Text("hello \(self.model.user.userName ?? "") !!")
-                Text("your dogs name is \(self.model.user.usersDogs?[0].name ?? "no dogs")")
+                Text("your dogs name is \(self.model.user.usersDogs.last?.name ?? "no dogs")")
                 Text("Succesfully logged in to Waggin' Tails App")
                 Button {
                     try! Auth.auth().signOut()

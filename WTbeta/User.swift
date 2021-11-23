@@ -11,5 +11,5 @@ import Foundation
 class User {
     var name: String?
     var userName: String?
-    var usersDogs: [Dog]?
+    var usersDogs: [Dog] = []
 }

@@ -9,4 +9,5 @@ import Foundation
 
 class Dog {
     var name: String = ""
+    var owner: User?
 }
