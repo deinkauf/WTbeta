@@ -34,6 +34,7 @@
 		930B13192745CDEC0045AF27 /* CustomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13182745CDEC0045AF27 /* CustomContentView.swift */; };
 		930B131B2746013F0045AF27 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B131A2746013F0045AF27 /* UserService.swift */; };
 		930B1320274602DF0045AF27 /* IntroTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B131F274602DF0045AF27 /* IntroTabView.swift */; };
+		930B1322274D6FA30045AF27 /* DogPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B1321274D6FA30045AF27 /* DogPark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		930B13182745CDEC0045AF27 /* CustomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContentView.swift; sourceTree = "<group>"; };
 		930B131A2746013F0045AF27 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		930B131F274602DF0045AF27 /* IntroTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTabView.swift; sourceTree = "<group>"; };
+		930B1321274D6FA30045AF27 /* DogPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPark.swift; sourceTree = "<group>"; };
 		E8D917CA8FF2C59896B74A6B /* Pods-WTbeta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTbeta.release.xcconfig"; path = "Target Support Files/Pods-WTbeta/Pods-WTbeta.release.xcconfig"; sourceTree = "<group>"; };
 		F5549AF77D96FE482B9DCB17 /* Pods_WTbeta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WTbeta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -192,6 +194,7 @@
 			children = (
 				09C1747027489D5700E31F74 /* User.swift */,
 				09C174722748CA0200E31F74 /* Dog.swift */,
+				930B1321274D6FA30045AF27 /* DogPark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				930B13042745B49E0045AF27 /* CustomLaunchView.swift in Sources */,
 				092A36F827443D960017A51E /* LaunchView.swift in Sources */,
 				09B14E0327416975006E2E48 /* WTbetaApp.swift in Sources */,
+				930B1322274D6FA30045AF27 /* DogPark.swift in Sources */,
 				930B1320274602DF0045AF27 /* IntroTabView.swift in Sources */,
 				09B29468274D6A11000710BB /* MapView.swift in Sources */,
 				092A36FA274463450017A51E /* LoginForm.swift in Sources */,
