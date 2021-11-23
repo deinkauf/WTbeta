@@ -6,15 +6,64 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct UserProfileView: View {
+    
+    @EnvironmentObject var model: UserVM
+    
     var body: some View {
-        Text("UserProfileView")
+        
+        NavigationView {
+            VStack(spacing: 10) {
+                
+                HStack {
+                    Text("Your Dogs:")
+                        .foregroundColor(Color(#colorLiteral(red: 0.9176450372, green: 0.3724507987, blue: 1, alpha: 1)))
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: CreateDogView()) {
+                        Image(systemName: "plus.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(Color(#colorLiteral(red: 0.5216394663, green: 0.2060443163, blue: 1, alpha: 1)))
+                    }
+                }
+                .padding(.horizontal, 30)
+                
+                if !self.model.user.usersDogs.isEmpty {
+                    ScrollView(.horizontal) {
+                        HStack {
+                            // TODO -- change this to ForEach() statement once Dog is identifiable
+                            DogCard(dog: self.model.user.usersDogs[0])
+//                            DogCard(dog: self.model.user.usersDogs[1])
+//                            DogCard(dog: self.model.user.usersDogs[2])
+//                            DogCard(dog: self.model.user.usersDogs[3])
+
+                        }.padding()
+                    }
+                    
+                } else {
+                    Text("Tap the (+) icon to add your dog!")
+                }
+            }
+            .navigationTitle("Your Account")
+            .toolbar {
+                NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gear")
+                }
+            }
+        }
+        
     }
 }
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
         UserProfileView()
+            .environmentObject(UserVM())
     }
 }

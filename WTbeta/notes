@@ -6,11 +6,10 @@ NOTES:
 // TODO -- 11/23
 
 --Don--
-
-have right tab show user's name and dogs' details
-settings button -> settingsView with sign out button
-add dog function attached to plus on dog card
-edit dog function attached to (-) on dog card
+(x) have right tab show user's name and dogs' details
+(x) settings button -> settingsView with sign out button
+(x) add dog function attached to plus on dog card
+() edit dog function attached to (-) on dog card
 
 
 ** **
