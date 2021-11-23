@@ -13,7 +13,7 @@ import Firebase
 
 struct CustomContentView: View {
     
-    @EnvironmentObject var model: UserModel
+    @EnvironmentObject var model: UserVM
     
     var body: some View {
         
@@ -58,6 +58,6 @@ struct CustomContentView: View {
 struct CustomContentView_Previews: PreviewProvider {
     static var previews: some View {
         CustomContentView()
-            .environmentObject(UserModel())
+            .environmentObject(UserVM())
     }
 }

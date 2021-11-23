@@ -82,7 +82,7 @@ struct WTbetaApp: App {
     var body: some Scene {
         WindowGroup {
             CustomLaunchView()
-                .environmentObject(UserModel())
+                .environmentObject(UserVM())
         }
     }
 }

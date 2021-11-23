@@ -11,7 +11,7 @@ import Firebase
 
 struct LoginView: View {
     
-    @EnvironmentObject var model: UserModel
+    @EnvironmentObject var model: UserVM
     
     @State var newUser = true
     @State private var email: String = ""

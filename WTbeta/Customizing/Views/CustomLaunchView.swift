@@ -10,7 +10,7 @@ import FirebaseAuth
 
 struct CustomLaunchView: View {
     
-    @EnvironmentObject var model: UserModel
+    @EnvironmentObject var model: UserVM
     
     var body: some View {
         

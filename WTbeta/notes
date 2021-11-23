@@ -1,18 +1,29 @@
 NOTES:
 
 ** do we need to use codable?? **
-** do we use structs or classes?? **j
+** do we use structs or classes?? **
 
 // TODO -- 11/23
 
+--Don--
+
 have right tab show user's name and dogs' details
-create the DogPark() struct/class ?
+settings button -> settingsView with sign out button
+add dog function attached to plus on dog card
+edit dog function attached to (-) on dog card
+
+
+** **
 add defaultDogPark variable to User class
 have left tab show default dog park
+
+
+
+--Mas--
+create the DogPark() struct/class ?
+start building DogParkVM
+simplistic DogPark Card
 have middle tab displaying list of dogparks pulled from db with live count of checkedIn Dogs
+** **
 when "check in" function fires, simply iterates the checkedIn count, and other users see change in real time
 attach actual Dog models to checkedIn dogs of dogParks (i see dog, click on dog, and am taken to dog details)
-
-
-
-

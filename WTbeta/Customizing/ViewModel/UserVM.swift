@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class UserModel: ObservableObject {
+class UserVM: ObservableObject {
     
     // Authentication
     @Published var loggedIn = false
