@@ -17,26 +17,41 @@ struct CustomContentView: View {
     
     var body: some View {
         
-        NavigationView {
-            VStack(spacing: 10) {
-                
-                Text("hello \(self.model.user.userName ?? "") !!")
-                Text("your dogs name is \(self.model.user.usersDogs.last?.name ?? "no dogs")")
-                Text("Succesfully logged in to Waggin' Tails App")
-                Button {
-                    try! Auth.auth().signOut()
-                    self.model.loggedIn = false
-                } label: {
-                    Text("sign out")
+//        NavigationView {
+//            VStack(spacing: 10) {
+//
+//                Text("hello \(self.model.user.userName ?? "") !!")
+//                Text("your dogs name is \(self.model.user.usersDogs.last?.name ?? "no dogs")")
+//                Text("Succesfully logged in to Waggin' Tails App")
+//                Button {
+//                    try! Auth.auth().signOut()
+//                    self.model.loggedIn = false
+//                } label: {
+//                    Text("sign out")
+//                }
+//
+//                NavigationLink(destination: CreateDogView()) {
+//                    Text("Create Dog")
+//                }
+//            }
+//        }
+        
+        TabView {
+            DefaultDogParkView()
+                .tabItem {
+                    Image(systemName: "house")
                 }
-                
-                NavigationLink(destination: CreateDogView()) {
-                    Text("Create Dog")
+            MapView()
+                .tabItem {
+                    Image(systemName: "globe")
                 }
-                
-                
-            }
+            UserProfileView()
+                .tabItem {
+                    Image(systemName: "person")
+                }
         }
+        .accentColor(Color(#colorLiteral(red: 0.9803921569, green: 0.537254902, blue: 0.4823529412, alpha: 1)))
+        
     }
 }
 
