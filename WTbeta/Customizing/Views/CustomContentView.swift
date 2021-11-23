@@ -33,7 +33,6 @@ struct CustomContentView: View {
                 NavigationLink(destination: CreateDogView()) {
                     Text("Create Dog")
                 }
-
             }
         }
         

@@ -63,6 +63,7 @@ class UserModel: ObservableObject {
             self.user.userName = data?["userName"] as? String
             // TODO -- need to make a function that maps the firebase usersDogs array to users array
             //      -- will have to convert document reference paths to Dog objects and add them to array
+            self.updateUI.toggle()
             if let userDocDogs = data?["usersDogs"] as? [DocumentReference] {
                 for dog in userDocDogs {
                     
@@ -89,10 +90,6 @@ class UserModel: ObservableObject {
             print("---------------  ----------------")
 //            print(userDocDogs)
             print(self.user.usersDogs)
-            
-            
-            self.updateUI.toggle()
-            
         }
     }
     
