@@ -1,0 +1,18 @@
+NOTES:
+
+** do we need to use codable?? **
+** do we use structs or classes?? **j
+
+// TODO -- 11/23
+
+have right tab show user's name and dogs' details
+create the DogPark() struct/class ?
+add defaultDogPark variable to User class
+have left tab show default dog park
+have middle tab displaying list of dogparks pulled from db with live count of checkedIn Dogs
+when "check in" function fires, simply iterates the checkedIn count, and other users see change in real time
+attach actual Dog models to checkedIn dogs of dogParks (i see dog, click on dog, and am taken to dog details)
+
+
+
+

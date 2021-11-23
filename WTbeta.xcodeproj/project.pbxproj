@@ -18,6 +18,7 @@
 		09C1747127489D5700E31F74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1747027489D5700E31F74 /* User.swift */; };
 		09C174732748CA0200E31F74 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C174722748CA0200E31F74 /* Dog.swift */; };
 		09C174752748CF6600E31F74 /* CreateDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C174742748CF6600E31F74 /* CreateDogView.swift */; };
+		09D0301D274CA3AB005BA4A2 /* notes in Resources */ = {isa = PBXBuildFile; fileRef = 09D0301C274CA3AB005BA4A2 /* notes */; };
 		8D6EAF209979F7866408AC76 /* Pods_WTbeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5549AF77D96FE482B9DCB17 /* Pods_WTbeta.framework */; };
 		930B13012745B41E0045AF27 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13002745B41E0045AF27 /* LoginView.swift */; };
 		930B13042745B49E0045AF27 /* CustomLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13032745B49E0045AF27 /* CustomLaunchView.swift */; };
@@ -44,6 +45,7 @@
 		09C1747027489D5700E31F74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = WTbeta/User.swift; sourceTree = SOURCE_ROOT; };
 		09C174722748CA0200E31F74 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dog.swift; path = WTbeta/Dog.swift; sourceTree = SOURCE_ROOT; };
 		09C174742748CF6600E31F74 /* CreateDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDogView.swift; sourceTree = "<group>"; };
+		09D0301C274CA3AB005BA4A2 /* notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes; sourceTree = "<group>"; };
 		889042ECC0A39D82A644CD7C /* Pods-WTbeta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTbeta.debug.xcconfig"; path = "Target Support Files/Pods-WTbeta/Pods-WTbeta.debug.xcconfig"; sourceTree = "<group>"; };
 		930B13002745B41E0045AF27 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		930B13032745B49E0045AF27 /* CustomLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLaunchView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				09B14E0627416975006E2E48 /* Assets.xcassets */,
 				09B14E1027416FB9006E2E48 /* GoogleService-Info.plist */,
 				09B14E0827416975006E2E48 /* Preview Content */,
+				09D0301C274CA3AB005BA4A2 /* notes */,
 			);
 			path = WTbeta;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			files = (
 				09B14E0A27416975006E2E48 /* Preview Assets.xcassets in Resources */,
 				09B14E0727416975006E2E48 /* Assets.xcassets in Resources */,
+				09D0301D274CA3AB005BA4A2 /* notes in Resources */,
 				09B14E1127416FB9006E2E48 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,32 +33,11 @@ struct CustomContentView: View {
                 NavigationLink(destination: CreateDogView()) {
                     Text("Create Dog")
                 }
+                
+                
             }
         }
-        
-//        .onAppear {
-//            getCurrentUsersName()
-//        }
     }
-    
-//    func getCurrentUsersName() {
-//        if let currentUser = Auth.auth().currentUser {
-//            let db = Firestore.firestore()
-//            let userDoc = db.collection("users").document(currentUser.uid)
-//            // Read Data and Handle errors
-//            userDoc.getDocument { snapshot, error in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                } else if let snapshot = snapshot {
-//                    userName = snapshot.get("name") as? String ?? ""
-//                    print("users name should be \(userName)")
-//                } else {
-//                    print("no data in getDocument call")
-//                }
-//            }
-//        }
-//
-//    }
 }
 
 struct CustomContentView_Previews: PreviewProvider {
