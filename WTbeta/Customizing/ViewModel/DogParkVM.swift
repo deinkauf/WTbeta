@@ -8,14 +8,14 @@
 import Foundation
 import Firebase
 import FirebaseAuth
-import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 
 class DogParkVM: ObservableObject {
     
     @Published var dogsCheckedIn = [Dog]()
     
-    var dog: Dog
+    var dog: Dog = Dog()
     
     init(){
         
