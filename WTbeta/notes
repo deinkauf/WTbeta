@@ -1,8 +1,5 @@
 NOTES:
 
-** do we need to use codable?? **
-** do we use structs or classes?? **
-
 // TODO -- 11/23
 
 --Don--
@@ -11,8 +8,6 @@ have right tab show user's name and dogs' details
 settings button -> settingsView with sign out button
 add dog function attached to plus on dog card
 edit dog function attached to (-) on dog card
-
-
 ** **
 add defaultDogPark variable to User class
 have left tab show default dog park
@@ -27,3 +22,15 @@ have middle tab displaying list of dogparks pulled from db with live count of ch
 ** **
 when "check in" function fires, simply iterates the checkedIn count, and other users see change in real time
 attach actual Dog models to checkedIn dogs of dogParks (i see dog, click on dog, and am taken to dog details)
+
+
+// NOTICE -- 11/24
+
+- in UserVM, in the getUserData function, the if let userDocDogs is pulling those dogs as [DocumentReferences]
+    when they should now be strings.. (we changed over from references to ID's). then change code within that same
+    getDocument function appropriately.
+    
+- the "dogsCheckedIn" dogs are being appended to the dogParkVM's dogsCheckedIn list ever time the dogparkview appears.
+    when fetching that data, we either need to change where that data is being called, right now i think its being fired every
+    .onAppear{} function call attached to the DogParkView. or we run a check to make sure the dog attempting to be checkedIn is not
+    already in that list.

@@ -15,8 +15,16 @@ struct DogParkView: View {
     
     var body: some View {
         if dogParkVM.dogPark != nil {
-            DogParkCard(dogPark: dogParkVM.dogPark!)
-        } else{Text("loading dog park...")}
+            VStack {
+                DogParkCard(dogPark: dogParkVM.dogPark!)
+                ScrollView {
+                    ForEach(dogParkVM.dogsCheckedIn) { dog in
+                        DogCard(dog: dog)
+                    }
+                }
+            }
+            
+        } else{ProgressView()}
     }
 }
 
