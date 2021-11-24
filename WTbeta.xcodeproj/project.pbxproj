@@ -19,6 +19,10 @@
 		09B29468274D6A11000710BB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B29467274D6A11000710BB /* MapView.swift */; };
 		09B2946A274D6A37000710BB /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B29469274D6A37000710BB /* UserProfileView.swift */; };
 		09B2946C274D6B78000710BB /* MapVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B2946B274D6B78000710BB /* MapVM.swift */; };
+		09B29473274DD692000710BB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B29472274DD692000710BB /* SettingsView.swift */; };
+		09B29476274DD6BD000710BB /* DogCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B29475274DD6BD000710BB /* DogCard.swift */; };
+		09B29478274DEA1C000710BB /* DogParkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B29477274DEA1C000710BB /* DogParkView.swift */; };
+		09B2947A274DEA6B000710BB /* DogParkCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B29479274DEA6B000710BB /* DogParkCard.swift */; };
 		09C1747127489D5700E31F74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C1747027489D5700E31F74 /* User.swift */; };
 		09C174732748CA0200E31F74 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C174722748CA0200E31F74 /* Dog.swift */; };
 		09C174752748CF6600E31F74 /* CreateDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C174742748CF6600E31F74 /* CreateDogView.swift */; };
@@ -53,6 +57,10 @@
 		09B29467274D6A11000710BB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		09B29469274D6A37000710BB /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		09B2946B274D6B78000710BB /* MapVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVM.swift; sourceTree = "<group>"; };
+		09B29472274DD692000710BB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		09B29475274DD6BD000710BB /* DogCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCard.swift; sourceTree = "<group>"; };
+		09B29477274DEA1C000710BB /* DogParkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogParkView.swift; sourceTree = "<group>"; };
+		09B29479274DEA6B000710BB /* DogParkCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogParkCard.swift; sourceTree = "<group>"; };
 		09C1747027489D5700E31F74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = WTbeta/User.swift; sourceTree = SOURCE_ROOT; };
 		09C174722748CA0200E31F74 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dog.swift; path = WTbeta/Dog.swift; sourceTree = SOURCE_ROOT; };
 		09C174742748CF6600E31F74 /* CreateDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDogView.swift; sourceTree = "<group>"; };
@@ -130,6 +138,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		09B29474274DD6A4000710BB /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				09B29475274DD6BD000710BB /* DogCard.swift */,
+				09B29479274DEA6B000710BB /* DogParkCard.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		59A0081E8B9F45530E38C234 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +198,7 @@
 		930B131C274602400045AF27 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09B29474274DD6A4000710BB /* SubViews */,
 				930B13102745C8A10045AF27 /* Components */,
 				930B13182745CDEC0045AF27 /* CustomContentView.swift */,
 				09C174742748CF6600E31F74 /* CreateDogView.swift */,
@@ -191,6 +209,8 @@
 				09B29467274D6A11000710BB /* MapView.swift */,
 				09B29469274D6A37000710BB /* UserProfileView.swift */,
 				930B1323274D7B1A0045AF27 /* BetaMapView.swift */,
+				09B29472274DD692000710BB /* SettingsView.swift */,
+				09B29477274DEA1C000710BB /* DogParkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,13 +356,16 @@
 				09C174752748CF6600E31F74 /* CreateDogView.swift in Sources */,
 				09B29466274D69E9000710BB /* DefaultDogParkView.swift in Sources */,
 				930B130D2745C2170045AF27 /* Extensions.swift in Sources */,
+				09B29476274DD6BD000710BB /* DogCard.swift in Sources */,
 				09C1747127489D5700E31F74 /* User.swift in Sources */,
 				09B2946C274D6B78000710BB /* MapVM.swift in Sources */,
 				09B2946A274D6A37000710BB /* UserProfileView.swift in Sources */,
 				930B1324274D7B1A0045AF27 /* BetaMapView.swift in Sources */,
+				09B29478274DEA1C000710BB /* DogParkView.swift in Sources */,
 				092A36FC27446C000017A51E /* CreateAccountForm.swift in Sources */,
 				930B13072745B5BB0045AF27 /* UserVM.swift in Sources */,
 				930B13172745C8D60045AF27 /* GlowRectangle.swift in Sources */,
+				09B2947A274DEA6B000710BB /* DogParkCard.swift in Sources */,
 				930B13122745C8BA0045AF27 /* CustomTextField.swift in Sources */,
 				09C174732748CA0200E31F74 /* Dog.swift in Sources */,
 				09B14E0527416975006E2E48 /* ContentView.swift in Sources */,
@@ -355,6 +378,7 @@
 				092A36FA274463450017A51E /* LoginForm.swift in Sources */,
 				930B1326274D8A9C0045AF27 /* DogParkVM.swift in Sources */,
 				930B13142745C8C20045AF27 /* Icon.swift in Sources */,
+				09B29473274DD692000710BB /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

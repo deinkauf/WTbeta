@@ -14,4 +14,5 @@ class User: Codable {
     var name: String?
     var userName: String?
     var usersDogs = [String]()
+    var defaultDogParkID: String?
 }

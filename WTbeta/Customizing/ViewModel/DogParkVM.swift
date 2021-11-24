@@ -15,30 +15,41 @@ class DogParkVM: ObservableObject {
     
     @Published var dogsCheckedIn = [Dog]()
     
-    var dog: Dog = Dog()
+    @Published var dogPark: DogPark?
+    
+    @Published var updateUI = false
     
     init(){
         
     }
     
-//    func getDogData(dogId: String) {
+//    func fetchDogParkData(dogParkId: String) {
+//        // fetch all data from firestore doc using given Dog Park ID
 //        let db = Firestore.firestore()
-//        let dogDoc = db.collection("dogs").document(dogId)
-//        dogDoc.getDocument { document, error in
-//            if let error = error as NSError? {
-//                self.errorMessage = "Error getting document: \(error.localizedDescription)"
-//            }
-//            else
-//            {
-//                if let document = document {
-//                    do {
-//                        self.dog = try document.data(as: Dog.self)
-//                    }
-//                    catch {
-//                        print(error)
-//            }
-//          }
+//        let dpRef = db.collection("dogParks").document(dogParkId)
+//        dpRef.getDocument { document, error in
+//            self.dogPark = try document?.data(as: DogPark.self)
 //        }
-//      }
 //    }
+    
+    func fetchDogParkData(dogParkID: String) {
+        let db = Firestore.firestore()
+      let docRef = db.collection("dogParks").document(dogParkID)
+      docRef.getDocument { document, error in
+        if let error = error as NSError? {
+          print(error)
+        }
+        else {
+          if let document = document {
+            do {
+              self.dogPark = try document.data(as: DogPark.self)
+            }
+            catch {
+              print(error)
+            }
+          }
+        }
+      }
+        self.updateUI.toggle()
+    }
 }

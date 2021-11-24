@@ -63,8 +63,9 @@ class UserVM: ObservableObject {
             
             // parse data out and set the user meta data
             let data = snapshot?.data()
-            self.user.name = data?["name"] as? String ?? ""
-            self.user.userName = data?["userName"] as? String ?? ""
+            self.user.name = data?["name"] as? String
+            self.user.userName = data?["userName"] as? String
+            self.user.defaultDogParkID = data?["defaultDogParkID"] as? String
             self.updateUI.toggle()
             // function to map dog docs to dog models
             if let userDocDogs = data?["usersDogs"] as? [DocumentReference] {
@@ -100,35 +101,33 @@ class UserVM: ObservableObject {
     
     // MARK -- Dog Data Methods
     
-//    func createDog(name: String) {
+    func createDog(name: String, breed: String, bio: String, age: Int) {
 //        
-//        // create local Dog model
-//        var dog = Dog()
-//        dog.name = name
-//        dog.ownerID = self.user
-//        
-//        // add it to local User
-//        dogs.append(dog)
-//        
-//        // create DB Dog doc
-//        let db = Firestore.firestore()
-//        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-//        let dogDoc = db.collection("dogs").addDocument(data: ["name": name, "owner": userRef])
-//        
-//        // add it to DB User doc
-//        userRef.getDocument { snapshot, error in
-//
-//            // check theres no error
-//            guard error == nil, snapshot != nil else {
-//                return
-//            }
-//
-//            // add dog to users array
-//            userRef.updateData(
-//                ["usersDogs" : FieldValue.arrayUnion([dogDoc])]
-//            )
-//        }
-//        print(self.user.usersDogs.last?.name ?? "no dogs")
-//        self.updateUI.toggle()
-//    }
+        // create local Dog model
+        let dog = Dog()
+        dog.name = name
+        dog.breed = breed
+        dog.bio = bio
+        dog.age = age
+        dog.ownerID = Auth.auth().currentUser!.uid
+        
+        // add it to local UserVM
+        self.dogs.append(dog)
+        
+        // create DB Dog doc
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        let collectionRef = db.collection("dogs")
+          do {
+            let newDogDocRef = try collectionRef.addDocument(from: dog)
+            print("dog is stored with new ref: \(newDogDocRef)")
+              // append it to user doc
+            userRef.updateData(
+                ["usersDogs" : FieldValue.arrayUnion([newDogDocRef.documentID])]
+            )
+          }
+          catch {
+            print(error)
+          }
+    }
 }
