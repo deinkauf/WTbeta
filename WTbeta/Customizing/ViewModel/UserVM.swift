@@ -12,6 +12,8 @@ import FirebaseFirestore
 
 class UserVM: ObservableObject {
     
+    @Published var dogs = [Dog]()
+    
     // Authentication
     @Published var loggedIn = false
     
@@ -57,32 +59,39 @@ class UserVM: ObservableObject {
                 return
             }
             
+            //set document to a user model
+            
             // parse data out and set the user meta data
             let data = snapshot?.data()
-            self.user.name = data?["name"] as? String
-            self.user.userName = data?["userName"] as? String
+            self.user.name = data?["name"] as? String ?? ""
+            self.user.userName = data?["userName"] as? String ?? ""
             self.updateUI.toggle()
             // function to map dog docs to dog models
             if let userDocDogs = data?["usersDogs"] as? [DocumentReference] {
                 for dog in userDocDogs {
-                    
+
                     // for each dog doc, create and append a dog() model
                     dog.getDocument { snapshot1, error in
-                        
+
                         // check theres no error
                         guard error == nil, snapshot1 != nil else {
                             return
                         }
-                        let tempDog = Dog()
+                        
                         // parse data out and set the dog meta data
+                        let tempDog = Dog()
                         let data1 = snapshot1?.data()
                         tempDog.name = data1?["name"] as? String ?? ""
-                        tempDog.owner = UserService.shared.user
-                        print(tempDog.name)
-                        self.user.usersDogs.append(tempDog)
+                        tempDog.ownerID = data1?["owner"] as? String ?? ""
+                        
+                        if tempDog.id != "" && tempDog.id != nil {
+                            self.user.usersDogs.append(tempDog.id!)
+                            self.dogs.append(tempDog)
+                        }
+                        print("--------------------------------")
                         print(self.user.usersDogs)
+                        print(tempDog.name)
                         self.updateUI.toggle()
-
                     }
                 }
             }
@@ -91,35 +100,35 @@ class UserVM: ObservableObject {
     
     // MARK -- Dog Data Methods
     
-    func createDog(name: String) {
-        
-        // create local Dog model
-        let dog = Dog()
-        dog.name = name
-        dog.owner = self.user
-        
-        // add it to local User
-        self.user.usersDogs.append(dog)
-        
-        // create DB Dog doc
-        let db = Firestore.firestore()
-        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        let dogDoc = db.collection("dogs").addDocument(data: ["name": name, "owner": userRef])
-        
-        // add it to DB User doc
-        userRef.getDocument { snapshot, error in
-
-            // check theres no error
-            guard error == nil, snapshot != nil else {
-                return
-            }
-
-            // add dog to users array
-            userRef.updateData(
-                ["usersDogs" : FieldValue.arrayUnion([dogDoc])]
-            )
-        }
-        print(self.user.usersDogs.last?.name ?? "no dogs")
-        self.updateUI.toggle()
-    }
+//    func createDog(name: String) {
+//        
+//        // create local Dog model
+//        var dog = Dog()
+//        dog.name = name
+//        dog.ownerID = self.user
+//        
+//        // add it to local User
+//        dogs.append(dog)
+//        
+//        // create DB Dog doc
+//        let db = Firestore.firestore()
+//        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+//        let dogDoc = db.collection("dogs").addDocument(data: ["name": name, "owner": userRef])
+//        
+//        // add it to DB User doc
+//        userRef.getDocument { snapshot, error in
+//
+//            // check theres no error
+//            guard error == nil, snapshot != nil else {
+//                return
+//            }
+//
+//            // add dog to users array
+//            userRef.updateData(
+//                ["usersDogs" : FieldValue.arrayUnion([dogDoc])]
+//            )
+//        }
+//        print(self.user.usersDogs.last?.name ?? "no dogs")
+//        self.updateUI.toggle()
+//    }
 }

@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 
-class User {
+class User: Codable {
+    @DocumentID var id = UUID().uuidString
     var name: String?
     var userName: String?
-    var usersDogs: [Dog] = []
+    var usersDogs = [String]()
 }

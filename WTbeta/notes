@@ -20,7 +20,7 @@ have left tab show default dog park
 
 
 --Mas--
-create the DogPark() struct/class ?
+(X) --> create the DogPark() struct/class ?
 start building DogParkVM
 simplistic DogPark Card
 have middle tab displaying list of dogparks pulled from db with live count of checkedIn Dogs
