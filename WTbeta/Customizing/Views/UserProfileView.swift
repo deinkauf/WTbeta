@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserProfileView: View {
-    @EnvironmentObject var model: UserVM
+    @EnvironmentObject var userVM: UserVM
         
         var body: some View {
             
@@ -32,10 +32,10 @@ struct UserProfileView: View {
                     }
                     .padding(.horizontal, 30)
                     
-                    if !self.model.user.usersDogs.isEmpty {
+                    if !self.userVM.user.usersDogs.isEmpty {
                         ScrollView(.horizontal) {
                             HStack {
-                                ForEach(self.model.dogs) { dog in
+                                ForEach(self.userVM.dogs) { dog in
                                     DogCard(dog: dog)
                                 }
                             }.padding()

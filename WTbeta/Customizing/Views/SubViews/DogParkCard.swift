@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DogParkCard: View {
     
-    @State var dogPark: DogPark
+    var dogPark: DogPark
     
     var body: some View {
         ZStack {

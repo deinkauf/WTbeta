@@ -10,18 +10,16 @@ import FirebaseAuth
 
 struct CustomLaunchView: View {
     
-    @EnvironmentObject var model: UserVM
+    @EnvironmentObject var userVM: UserVM
     
     var body: some View {
         
-        VStack{
-            
-        }
-        if model.loggedIn == false {
+        
+        if userVM.loggedIn == false {
             
             IntroTabView()
                 .onAppear {
-                    self.model.checkLogin()
+                    self.userVM.checkLogin()
                 }
             
         }
@@ -31,10 +29,6 @@ struct CustomLaunchView: View {
             
         }
         
-    }
-    
-    private func checkLogin() {
-        model.loggedIn = Auth.auth().currentUser == nil ? false : true
     }
 }
 

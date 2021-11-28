@@ -13,18 +13,26 @@ struct DogParkView: View {
     @EnvironmentObject var userVM: UserVM
     @ObservedObject var dogParkVM: DogParkVM
     
+    
+    
     var body: some View {
-        if dogParkVM.dogPark != nil {
-            VStack {
-                DogParkCard(dogPark: dogParkVM.dogPark!)
-                ScrollView {
-                    ForEach(dogParkVM.dogsCheckedIn) { dog in
-                        DogCard(dog: dog)
+        
+        let _ = dogParkVM.fetchData()
+        VStack {
+            if dogParkVM.dogPark != nil {
+                VStack {
+                    DogParkCard(dogPark: dogParkVM.dogPark!)
+//                    Text(dogParkVM.dogPark!.name!)
+                    ScrollView {
+                        ForEach(dogParkVM.dogIDsCheckedIn, id: \.self) { dogID in
+                            Text("dogId : \(dogID)")
+                        }
                     }
                 }
-            }
-            
-        } else{ProgressView()}
+                
+            } else{ProgressView()}
+        }
+        
     }
 }
 

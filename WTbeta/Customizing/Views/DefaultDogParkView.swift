@@ -11,20 +11,25 @@ import FirebaseFirestoreSwift
 struct DefaultDogParkView: View {
     
     @EnvironmentObject var userVM: UserVM
-    @ObservedObject var dogParkVM = DogParkVM()
     
     var body: some View {
         
-        if userVM.user.defaultDogParkID != nil {
-            DogParkView(dogParkVM: dogParkVM).onAppear {
-                dogParkVM.fetchDogParkData(dogParkID: userVM.user.defaultDogParkID!)
-            }
-        } else { Text("No Default Dog Park") }
+        if userVM.hasDefaultDogPark == false {
+            Text("does not have default dog park")
+                .onAppear {
+                    userVM.checkDefaultDogPark()
+                }
+            
+        } else {
+            DogParkView(dogParkVM: DogParkVM(dogParkID: self.userVM.user.defaultDogParkID!))
+        }
     }
+    
+    
 }
 
-struct DefaultDogParkView_Previews: PreviewProvider {
-    static var previews: some View {
-        DefaultDogParkView()
-    }
-}
+//struct DefaultDogParkView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DefaultDogParkView()
+//    }
+//}

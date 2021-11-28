@@ -17,6 +17,8 @@ class UserVM: ObservableObject {
     // Authentication
     @Published var loggedIn = false
     
+    @Published var hasDefaultDogPark = false
+    
     // toggle() to update UI
     @Published var updateUI: Bool = false
     
@@ -37,6 +39,10 @@ class UserVM: ObservableObject {
         if user.userName == nil {
             getUserData()
         }
+    }
+    
+    func checkDefaultDogPark() {
+        hasDefaultDogPark = user.defaultDogParkID != nil ? true : false
     }
     
     // MARK -- Data Methods
@@ -66,13 +72,15 @@ class UserVM: ObservableObject {
             self.user.name = data?["name"] as? String
             self.user.userName = data?["userName"] as? String
             self.user.defaultDogParkID = data?["defaultDogParkID"] as? String
-            self.updateUI.toggle()
+            if self.user.defaultDogParkID != nil {self.hasDefaultDogPark = true}
+//            self.updateUI.toggle()
             // function to map dog docs to dog models
-            if let userDocDogs = data?["usersDogs"] as? [DocumentReference] {
+            if let userDocDogs = data?["usersDogs"] as? [String] {
                 for dog in userDocDogs {
 
+                    let dogDoc = db.collection("dogs").document(dog)
                     // for each dog doc, create and append a dog() model
-                    dog.getDocument { snapshot1, error in
+                    dogDoc.getDocument { snapshot1, error in
 
                         // check theres no error
                         guard error == nil, snapshot1 != nil else {
@@ -92,7 +100,7 @@ class UserVM: ObservableObject {
                         print("--------------------------------")
                         print(self.user.usersDogs)
                         print(tempDog.name)
-                        self.updateUI.toggle()
+//                        self.updateUI.toggle()
                     }
                 }
             }

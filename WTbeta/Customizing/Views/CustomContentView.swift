@@ -13,7 +13,7 @@ import Firebase
 
 struct CustomContentView: View {
     
-    @EnvironmentObject var model: UserVM
+    @EnvironmentObject var userVM: UserVM
     
     var body: some View {
         
