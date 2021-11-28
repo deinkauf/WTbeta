@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct MapView: View {
+    
+    @ObservedObject private var mapVM = MapVM()
+    
     var body: some View {
-        Text("MapView")
+        ScrollView {
+            ForEach(mapVM.dogParks) { dogPark in
+                DogParkCard(dogPark: dogPark)
+            }
+        }
+        .onAppear {
+            self.mapVM.fetchData()
+        }
     }
 }
 

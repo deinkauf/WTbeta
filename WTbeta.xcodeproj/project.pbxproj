@@ -39,7 +39,6 @@
 		930B131B2746013F0045AF27 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B131A2746013F0045AF27 /* UserService.swift */; };
 		930B1320274602DF0045AF27 /* IntroTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B131F274602DF0045AF27 /* IntroTabView.swift */; };
 		930B1322274D6FA30045AF27 /* DogPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B1321274D6FA30045AF27 /* DogPark.swift */; };
-		930B1324274D7B1A0045AF27 /* BetaMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B1323274D7B1A0045AF27 /* BetaMapView.swift */; };
 		930B1326274D8A9C0045AF27 /* DogParkVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B1325274D8A9C0045AF27 /* DogParkVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,7 +76,6 @@
 		930B131A2746013F0045AF27 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		930B131F274602DF0045AF27 /* IntroTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTabView.swift; sourceTree = "<group>"; };
 		930B1321274D6FA30045AF27 /* DogPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPark.swift; sourceTree = "<group>"; };
-		930B1323274D7B1A0045AF27 /* BetaMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetaMapView.swift; sourceTree = "<group>"; };
 		930B1325274D8A9C0045AF27 /* DogParkVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogParkVM.swift; sourceTree = "<group>"; };
 		E8D917CA8FF2C59896B74A6B /* Pods-WTbeta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTbeta.release.xcconfig"; path = "Target Support Files/Pods-WTbeta/Pods-WTbeta.release.xcconfig"; sourceTree = "<group>"; };
 		F5549AF77D96FE482B9DCB17 /* Pods_WTbeta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WTbeta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +206,6 @@
 				09B29465274D69E9000710BB /* DefaultDogParkView.swift */,
 				09B29467274D6A11000710BB /* MapView.swift */,
 				09B29469274D6A37000710BB /* UserProfileView.swift */,
-				930B1323274D7B1A0045AF27 /* BetaMapView.swift */,
 				09B29472274DD692000710BB /* SettingsView.swift */,
 				09B29477274DEA1C000710BB /* DogParkView.swift */,
 			);
@@ -360,7 +357,6 @@
 				09C1747127489D5700E31F74 /* User.swift in Sources */,
 				09B2946C274D6B78000710BB /* MapVM.swift in Sources */,
 				09B2946A274D6A37000710BB /* UserProfileView.swift in Sources */,
-				930B1324274D7B1A0045AF27 /* BetaMapView.swift in Sources */,
 				09B29478274DEA1C000710BB /* DogParkView.swift in Sources */,
 				092A36FC27446C000017A51E /* CreateAccountForm.swift in Sources */,
 				930B13072745B5BB0045AF27 /* UserVM.swift in Sources */,
