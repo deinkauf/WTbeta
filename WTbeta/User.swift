@@ -13,6 +13,5 @@ class User: Codable {
     @DocumentID var id = UUID().uuidString
     var name: String?
     var userName: String?
-    var usersDogs = [String]()
     var defaultDogParkID: String?
 }

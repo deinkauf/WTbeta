@@ -22,33 +22,16 @@ struct DogParkView: View {
             if dogParkVM.dogPark != nil {
                 VStack {
                     DogParkCard(dogPark: dogParkVM.dogPark!)
-//                    Text(dogParkVM.dogPark!.name!)
                     ScrollView {
-                        ForEach(dogParkVM.dogIDsCheckedIn, id: \.self) { dogID in
-                            Text("dogId : \(dogID)")
+                        ForEach(dogParkVM.dogsCheckedIn) { dog in
+                            DogCard(dog: dog)
                         }
-//                        ForEach(dogParkVM.dogIDsCheckedIn, id: \.self) { dogID in
-//                            let dog = convertIdToDog(dogID: dogID)
-//                            if dog != nil {DogCard(dog: dog!)}
-//                        }
                     }
                 }
                 
-            } else{ProgressView()}
+            } else { ProgressView() }
         }
-        
     }
-    
-//    func convertIdToDog(dogID: String) -> Dog? {
-//        let db = Firestore.firestore()
-//        var dog: Dog?
-//        db.collection("dogs").document(dogID).getDocument { document, error in
-//            dog = try? document?.data(as: Dog.self)
-//        }
-//        let count = 0
-//        print("dog converted in dogparkview : \(count+1)")
-//        return dog
-//    }
 }
 
 //struct DogParkView_Previews: PreviewProvider {

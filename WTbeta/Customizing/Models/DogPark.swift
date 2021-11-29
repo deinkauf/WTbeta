@@ -15,6 +15,5 @@ struct DogPark: Identifiable, Codable {
     @DocumentID var id = UUID().uuidString
     var name: String?
     var location: GeoPoint?
-    var dogsCheckedIn = [String]()
 //    var dogsCheckedIn: CollectionReference?
 }

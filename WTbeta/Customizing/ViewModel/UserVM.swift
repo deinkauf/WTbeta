@@ -24,6 +24,8 @@ class UserVM: ObservableObject {
     
     var user = UserService.shared.user
     
+    private var db = Firestore.firestore()
+    
     init(){
         
     }
@@ -55,7 +57,6 @@ class UserVM: ObservableObject {
         }
         
         // get meta data for that user
-        let db = Firestore.firestore()
         let ref = db.collection("users").document(Auth.auth().currentUser!.uid)
         
         ref.getDocument { snapshot, error in
@@ -73,38 +74,30 @@ class UserVM: ObservableObject {
             self.user.userName = data?["userName"] as? String
             self.user.defaultDogParkID = data?["defaultDogParkID"] as? String
             if self.user.defaultDogParkID != nil {self.hasDefaultDogPark = true}
-//            self.updateUI.toggle()
-            // function to map dog docs to dog models
-            if let userDocDogs = data?["usersDogs"] as? [String] {
-                for dog in userDocDogs {
-
-                    let dogDoc = db.collection("dogs").document(dog)
-                    // for each dog doc, create and append a dog() model
-                    dogDoc.getDocument { snapshot1, error in
-
-                        // check theres no error
-                        guard error == nil, snapshot1 != nil else {
-                            return
-                        }
-                        
-                        // parse data out and set the dog meta data
-                        let tempDog = Dog()
-                        let data1 = snapshot1?.data()
-                        tempDog.name = data1?["name"] as? String ?? ""
-                        tempDog.ownerID = data1?["owner"] as? String ?? ""
-                        
-                        if tempDog.id != "" && tempDog.id != nil {
-                            self.user.usersDogs.append(tempDog.id!)
-                            self.dogs.append(tempDog)
-                        }
-                        print("--------------------------------")
-                        print(self.user.usersDogs)
-                        print(tempDog.name)
-//                        self.updateUI.toggle()
-                    }
-                }
+        }
+        print("running getUserDogs()")
+        getUserDogs()
+    }
+    
+    func getUserDogs() {
+        // checked that theres logged in user
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+        
+        db.collection("users").document(Auth.auth().currentUser!.uid).collection("userDogs").addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("no documents")
+                return
+            }
+            
+            self.dogs = documents.compactMap { (queryDocumentSnapshot) -> Dog? in
+                return try? queryDocumentSnapshot.data(as: Dog.self)
             }
         }
+        print("finished running getUserDogs()")
+        print("---- user.dogs ----")
+        print(dogs)
     }
     
     // MARK -- Dog Data Methods
@@ -123,7 +116,6 @@ class UserVM: ObservableObject {
         self.dogs.append(dog)
         
         // create DB Dog doc
-        let db = Firestore.firestore()
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         let collectionRef = db.collection("dogs")
           do {

@@ -32,7 +32,7 @@ struct UserProfileView: View {
                     }
                     .padding(.horizontal, 30)
                     
-                    if !self.userVM.user.usersDogs.isEmpty {
+                    if !self.userVM.dogs.isEmpty {
                         ScrollView(.horizontal) {
                             HStack {
                                 ForEach(self.userVM.dogs) { dog in
