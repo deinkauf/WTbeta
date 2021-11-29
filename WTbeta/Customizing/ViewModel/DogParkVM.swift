@@ -35,6 +35,28 @@ class DogParkVM: ObservableObject {
             }
             
             self.dogPark = try? document.data(as: DogPark.self)
+            
+            
+//            if let checkedInDogDocs = document.data()?["dogsCheckedIn"] as? [String] {
+//                for dog in checkedInDogDocs {
+//
+//                    let dogDoc = self.db.collection("dogs").document(dog)
+//                    // for each dog doc, create and append a dog() model
+//                    dogDoc.getDocument { snapshot1, error in
+//
+//                        // check theres no error
+//                        guard error == nil, snapshot1 != nil else {
+//                            return
+//                        }
+//
+//                        let tempDog = try? snapshot1?.data(as: Dog.self)
+//                        if tempDog != nil && !self.dogsCheckedIn.contains(where: {$0.id == tempDog?.id}) {
+//                            self.dogsCheckedIn.append(tempDog!)
+//                        }
+//                    }
+//                }
+//            }
+            
             if self.dogPark != nil {
                 if !self.dogPark!.dogsCheckedIn.isEmpty {
                     self.dogIDsCheckedIn = self.dogPark!.dogsCheckedIn

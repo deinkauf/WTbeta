@@ -7,12 +7,12 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestoreSwift
 
 struct DogParkView: View {
     
     @EnvironmentObject var userVM: UserVM
     @ObservedObject var dogParkVM: DogParkVM
-    
     
     
     var body: some View {
@@ -27,6 +27,10 @@ struct DogParkView: View {
                         ForEach(dogParkVM.dogIDsCheckedIn, id: \.self) { dogID in
                             Text("dogId : \(dogID)")
                         }
+//                        ForEach(dogParkVM.dogIDsCheckedIn, id: \.self) { dogID in
+//                            let dog = convertIdToDog(dogID: dogID)
+//                            if dog != nil {DogCard(dog: dog!)}
+//                        }
                     }
                 }
                 
@@ -34,6 +38,17 @@ struct DogParkView: View {
         }
         
     }
+    
+//    func convertIdToDog(dogID: String) -> Dog? {
+//        let db = Firestore.firestore()
+//        var dog: Dog?
+//        db.collection("dogs").document(dogID).getDocument { document, error in
+//            dog = try? document?.data(as: Dog.self)
+//        }
+//        let count = 0
+//        print("dog converted in dogparkview : \(count+1)")
+//        return dog
+//    }
 }
 
 //struct DogParkView_Previews: PreviewProvider {

@@ -15,7 +15,7 @@ struct DefaultDogParkView: View {
     var body: some View {
         
         if userVM.hasDefaultDogPark == false {
-            Text("does not have default dog park")
+            ProgressView()
                 .onAppear {
                     userVM.checkDefaultDogPark()
                 }

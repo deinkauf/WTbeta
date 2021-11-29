@@ -16,4 +16,5 @@ struct DogPark: Identifiable, Codable {
     var name: String?
     var location: GeoPoint?
     var dogsCheckedIn = [String]()
+//    var dogsCheckedIn: CollectionReference?
 }
