@@ -21,7 +21,7 @@ struct DogParkView: View {
         VStack {
             if dogParkVM.dogPark != nil {
                 VStack {
-                    DogParkCard(dogPark: dogParkVM.dogPark!)
+                    DogParkCard(dogPark: dogParkVM.dogPark!, dogCount: dogParkVM.dogsCheckedIn.count)
                     ScrollView {
                         ForEach(dogParkVM.dogsCheckedIn) { dog in
                             DogCard(dog: dog)

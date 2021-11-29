@@ -14,7 +14,7 @@ struct MapView: View {
     var body: some View {
         ScrollView {
             ForEach(mapVM.dogParks) { dogPark in
-                DogParkCard(dogPark: dogPark)
+                DogParkCard(dogPark: dogPark, dogCount: 0)
             }
         }
         .onAppear {

@@ -1,36 +1,48 @@
 NOTES:
 
-// TODO -- 11/23
+// -- TODO
 
 --Don--
-
-have right tab show user's name and dogs' details
-settings button -> settingsView with sign out button
-add dog function attached to plus on dog card
-edit dog function attached to (-) on dog card
-** **
-add defaultDogPark variable to User class
-have left tab show default dog park
+() add functions to dogPark
+    () clicking star to make default dogpark
+    () create checkInButton()/checkOutButton()
+    () function to check in
+        - dogParkVM.checkInDog(dog: Dog)
+        - db.collection("dogParks").document(dogParkID).collection("checkedInDogs").addDocument(from: Dog.self)
+    () function to check out
+        - same but vice versa (delete document)
+    () conditional to display checkIn/checkOut if user.checkedIn
+() conditional for HomeView to display Default DogPark or CheckedInDogPark
+    () adding CheckedInDogPark var to UserVM
 
 
 
 --Mas--
-(X) --> create the DogPark() struct/class ?
-start building DogParkVM
-simplistic DogPark Card
-have middle tab displaying list of dogparks pulled from db with live count of checkedIn Dogs
-** **
-when "check in" function fires, simply iterates the checkedIn count, and other users see change in real time
-attach actual Dog models to checkedIn dogs of dogParks (i see dog, click on dog, and am taken to dog details)
+() navigate user back to profile view when dog created from profile view
+() make edit dog function
+() attach to edit dog view (1 page view)
+() create conditional display of edit button in dog park card (thi smay entail public/private cards?)
+() add onboarding UI to create account pipeline (creating dog)
+() attach add dog function from userVM to onboarding UI
+() create logic in DogCard() (conditional for profile image, etc.)
 
 
-// NOTICE -- 11/24
+// -- IN DUE TIME
 
-- in UserVM, in the getUserData function, the if let userDocDogs is pulling those dogs as [DocumentReferences]
-    when they should now be strings.. (we changed over from references to ID's). then change code within that same
-    getDocument function appropriately.
-    
-- the "dogsCheckedIn" dogs are being appended to the dogParkVM's dogsCheckedIn list ever time the dogparkview appears.
-    when fetching that data, we either need to change where that data is being called, right now i think its being fired every
-    .onAppear{} function call attached to the DogParkView. or we run a check to make sure the dog attempting to be checkedIn is not
-    already in that list.
+() MapView
+    () Get Users Current Location
+    () MKLocalSearch
+        - search for "DogParks" based on User's Location
+        - create DogPark() models from search results
+        - add them to the "dogParks" collection if not there already
+    () Add MapItems from Database "dogParks" based on location
+        - function to get dogParks "near me"
+    () Attach DogParkView()s to each mapItem (DogPark Items)
+        - .sheet?
+() Create App Icon
+() Asset Colors
+() Fancy UI updates
+() Unit Testing
+() Devloper Membership
+
+() !!!!!!PUBLISH!!!!!!!!

@@ -20,7 +20,7 @@ struct DogCard: View {
                             gradient: Gradient(colors: [Color(#colorLiteral(red: 0.9176450372, green: 0.3724507987, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.5216394663, green: 0.2060443163, blue: 1, alpha: 1))]),
                             startPoint: .leading, endPoint: .trailing))
                     .frame(width: 350, height: 215)
-                    .shadow(color: .gray, radius: 10, x: 0.0, y: 10)
+//                    .shadow(color: .gray, radius: 10, x: 0.0, y: 10)
                     .overlay(
                         HStack {
                             

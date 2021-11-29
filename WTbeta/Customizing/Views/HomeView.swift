@@ -1,5 +1,5 @@
 //
-//  DefaultDogParkView.swift
+//  HomeView.swift
 //  WTbeta
 //
 //  Created by Donovan Einkauf on 11/23/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseFirestoreSwift
 
-struct DefaultDogParkView: View {
+struct HomeView: View {
     
     @EnvironmentObject var userVM: UserVM
     

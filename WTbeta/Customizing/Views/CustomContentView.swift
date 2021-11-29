@@ -18,7 +18,7 @@ struct CustomContentView: View {
     var body: some View {
         
         TabView {
-            DefaultDogParkView()
+            HomeView()
                 .tabItem {
                     Image(systemName: "house")
                 }

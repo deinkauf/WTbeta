@@ -10,6 +10,7 @@ import SwiftUI
 struct DogParkCard: View {
     
     var dogPark: DogPark
+    var dogCount: Int
     
     var body: some View {
         ZStack {
@@ -46,10 +47,6 @@ struct DogParkCard: View {
                         
                         VStack(alignment: .trailing) {
                             ZStack {
-                                //Ellipse 2
-                                Circle()
-                                    .fill(Color(#colorLiteral(red: 0.7686274647712708, green: 0.7686274647712708, blue: 0.7686274647712708, alpha: 0.4000000059604645)))
-                                    .frame(width: 30, height: 30)
                                 //Star
                                 Image(systemName: "star")
                                     .foregroundColor(.white)
@@ -59,10 +56,11 @@ struct DogParkCard: View {
                             ZStack {
                                 //Paw
                                 Circle()
-                                    .fill(Color(#colorLiteral(red: 0.7686274647712708, green: 0.7686274647712708, blue: 0.7686274647712708, alpha: 0.4000000059604645)))
+                                    .stroke(lineWidth: 2)
+                                    .foregroundColor(.white)
                                     .frame(width: 52, height: 52)
                                 //14
-                                Text("14").font(.system(size: 40, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                                Text("\(dogCount)").font(.system(size: 40, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                             }
                         }
                         .padding(15)
