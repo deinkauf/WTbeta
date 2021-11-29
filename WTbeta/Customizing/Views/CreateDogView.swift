@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateDogView: View {
     
-    @EnvironmentObject var model: UserVM
+    @EnvironmentObject var userVM: UserVM
     @State var name: String = ""
     @State var breed: String = ""
     @State var bio: String = ""
@@ -28,7 +28,7 @@ struct CreateDogView: View {
             Button {
                 if name != "" && breed != "" && bio != "" {
                     errorMessage = nil
-                    model.createDog(name: name, breed: breed, bio: bio, age: 1)
+                    userVM.createDog(name: name, breed: breed, bio: bio, age: 1)
                 } else {
                     errorMessage = "All fields are required! :)"
                 }

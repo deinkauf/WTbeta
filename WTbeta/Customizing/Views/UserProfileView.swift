@@ -45,7 +45,7 @@ struct UserProfileView: View {
                         Text("Tap the (+) icon to add your dog!")
                     }
                 }
-                .navigationTitle("Your Account")
+                .navigationTitle(userVM.user.name ?? "no name")
                 .toolbar {
                     NavigationLink(destination: SettingsView()) {
                         Image(systemName: "gear")

@@ -117,14 +117,10 @@ class UserVM: ObservableObject {
         
         // create DB Dog doc
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        let collectionRef = db.collection("dogs")
+        let collectionRef = userRef.collection("userDogs")
           do {
             let newDogDocRef = try collectionRef.addDocument(from: dog)
             print("dog is stored with new ref: \(newDogDocRef)")
-              // append it to user doc
-            userRef.updateData(
-                ["usersDogs" : FieldValue.arrayUnion([newDogDocRef.documentID])]
-            )
           }
           catch {
             print(error)

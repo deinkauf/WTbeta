@@ -170,7 +170,9 @@ struct LoginView: View {
             
             let db = Firestore.firestore()
             let userDoc = db.collection("users").document(currentUser.uid)
-            userDoc.setData(["name" : trimmedName, "userName": userName, "usersDogs" : []])
+            userDoc.setData(["name" : trimmedName, "userName": userName])
+//            let dogDoc = userDoc.collection("userDogs").document()
+//            dogDoc.setData(["name":"testName"])
             
             // update user meta data
             let user = UserService.shared.user
