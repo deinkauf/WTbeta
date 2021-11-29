@@ -13,6 +13,7 @@ struct CustomTextField: View {
     //TODO -- CHANGE AGE TO AN INT AND ENSURE IT PASSES PROPERLY
     @Binding private(set) var userFieldEntry: String
     
+    
     var showingSecureField = false
     
     var body: some View {

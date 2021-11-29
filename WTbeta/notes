@@ -18,13 +18,22 @@ NOTES:
 
 
 --Mas--
-() navigate user back to profile view when dog created from profile view
-() make edit dog function
-() attach to edit dog view (1 page view)
-() create conditional display of edit button in dog park card (thi smay entail public/private cards?)
-() add onboarding UI to create account pipeline (creating dog)
-() attach add dog function from userVM to onboarding UI
-() create logic in DogCard() (conditional for profile image, etc.)
+() Integrate Onboarding
+    (X) add onboarding UI to create account pipeline (creating dog)
+    () attach add dog function from userVM to onboarding UI
+
+() Enable User to Edit Dog
+    () make edit dog function
+    () attach to edit dog view (1 page view)
+    () create conditional display of edit button in dog park card (this may entail public/private cards?)
+    
+() Create Dog in Profile View
+    () Use Edit Dog View, except with empty values for createDogView
+    () incorporate the addDog function from UserVM to add the Dog to the userDogs Subcollection
+    () navigate user back to profile view when dog created from profile view
+
+() create conditional logic in DogCard() for profilePic (if nil, display pawprint)
+
 
 
 // -- IN DUE TIME
@@ -42,7 +51,7 @@ NOTES:
 () Create App Icon
 () Asset Colors
 () Fancy UI updates
-() Unit Testing
+() Unit Testing - Different Users, Invalid Data, Different Devices, Syncing Between DogParks / Dog Edits / Checkins & Checkouts
 () Devloper Membership
 
 () !!!!!!PUBLISH!!!!!!!!

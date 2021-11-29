@@ -15,7 +15,7 @@ class Dog: Identifiable, Codable {
     var name: String?
     var breed: String?
     var bio: String?
-    var age: Int?
+    var age: String?
     var cardColor: CardColor?
     var profilePic: Data?
     var checkedIn: Bool?

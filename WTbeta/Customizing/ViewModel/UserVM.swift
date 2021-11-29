@@ -102,7 +102,7 @@ class UserVM: ObservableObject {
     
     // MARK -- Dog Data Methods
     
-    func createDog(name: String, breed: String, bio: String, age: Int) {
+    func createDog(name: String, breed: String, bio: String, age: String, profilePic: UIImage) {
 //        
         // create local Dog model
         let dog = Dog()
@@ -110,6 +110,7 @@ class UserVM: ObservableObject {
         dog.breed = breed
         dog.bio = bio
         dog.age = age
+        dog.profilePic = profilePic
         dog.ownerID = Auth.auth().currentUser!.uid
         
         // add it to local UserVM
