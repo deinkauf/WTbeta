@@ -4,40 +4,48 @@ NOTES:
 
 --Don--
 () add functions to dogPark
-    () clicking star to make default dogpark
-    () create checkInButton()/checkOutButton()
-    () function to check in
+    (X) clicking star to make default dogpark
+    (X) create checkInButton()/checkOutButton()
+    (X) function to check in
         - dogParkVM.checkInDog(dog: Dog)
         - db.collection("dogParks").document(dogParkID).collection("checkedInDogs").addDocument(from: Dog.self)
-    () function to check out
+    (X) function to check out
         - same but vice versa (delete document)
-    () conditional to display checkIn/checkOut if user.checkedIn
-() conditional for HomeView to display Default DogPark or CheckedInDogPark
-    () adding CheckedInDogPark var to UserVM
+    (X) conditional to display checkIn/checkOut if user.checkedIn
+(X) conditional for HomeView to display Default DogPark or CheckedInDogPark
+    (X) adding CheckedInDogPark var to UserVM
 
 
 
 --Mas--
-() Integrate Onboarding
+(X) Integrate Onboarding
     (X) add onboarding UI to create account pipeline (creating dog)
-    () attach add dog function from userVM to onboarding UI
+    (X) attach add dog function from userVM to onboarding UI
 
-() Enable User to Edit Dog
-    () make edit dog function
-    () attach to edit dog view (1 page view)
-    () create conditional display of edit button in dog park card (this may entail public/private cards?)
+(X) Enable User to Edit Dog
+    (X) make edit dog function
+    (X) attach to edit dog view (1 page view)
+    (X) create conditional display of edit button in dog park card (this may entail public/private cards?)
     
-() Create Dog in Profile View
-    () Use Edit Dog View, except with empty values for createDogView
-    () incorporate the addDog function from UserVM to add the Dog to the userDogs Subcollection
-    () navigate user back to profile view when dog created from profile view
+(X) Create Dog in Profile View
+    (X) Use Edit Dog View, except with empty values for createDogView
+    (X) incorporate the addDog function from UserVM to add the Dog to the userDogs Subcollection
+    (X) navigate user back to profile view when dog created from profile view
+    
+() Enable Upload & Display of Dog Profile Pic with Dog Card
+    () Integrate StorageManager() into the Dog Creation in AddPic() View
+    () Double Check Image Folder / Name to ensure its unique to the dog
+    () Double Check Dog Profile Pic property to ensure type is compatible (if its even necessary)
+    () create conditional logic in DogCard() for profilePic (if nil, display pawprint)
 
-() create conditional logic in DogCard() for profilePic (if nil, display pawprint)
 
 
 
 // -- IN DUE TIME
-
+() Create Settings View for User and User Preferences
+() Check for Username/Email already created
+() MidnightCheckout Function
+    - Could make it a database function that executes a checkout for all users/dogs within Firebase
 () MapView
     () Get Users Current Location
     () MKLocalSearch
@@ -48,6 +56,8 @@ NOTES:
         - function to get dogParks "near me"
     () Attach DogParkView()s to each mapItem (DogPark Items)
         - .sheet?
+() -- If time permits --> Multi Dog CheckIn
+    - Dog Card Alignment - Geometry Reader?
 () Create App Icon
 () Asset Colors
 () Fancy UI updates

@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 
-struct CustomLaunchView: View {
+struct LaunchView: View {
     
     @EnvironmentObject var userVM: UserVM
     
@@ -25,7 +25,7 @@ struct CustomLaunchView: View {
         }
         else {
             
-            CustomContentView()
+            ContentView()
             
         }
         
@@ -34,6 +34,6 @@ struct CustomLaunchView: View {
 
 struct CustomLaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomLaunchView()
+        LaunchView()
     }
 }

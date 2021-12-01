@@ -75,7 +75,6 @@ class UserVM: ObservableObject {
             self.user.defaultDogParkID = data?["defaultDogParkID"] as? String
             if self.user.defaultDogParkID != nil {self.hasDefaultDogPark = true}
         }
-        print("running getUserDogs()")
         getUserDogs()
     }
     
@@ -95,36 +94,68 @@ class UserVM: ObservableObject {
                 return try? queryDocumentSnapshot.data(as: Dog.self)
             }
         }
-        print("finished running getUserDogs()")
-        print("---- user.dogs ----")
-        print(dogs)
     }
     
     // MARK -- Dog Data Methods
     
     func createDog(name: String, breed: String, bio: String, age: String, profilePic: UIImage) {
-//        
+        
+        // checked that theres logged in user
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
+
         // create local Dog model
         let dog = Dog()
         dog.name = name
         dog.breed = breed
         dog.bio = bio
         dog.age = age
-        dog.profilePic = profilePic
+        //dog.imageUrl = dogURL?.absoluteString
         dog.ownerID = Auth.auth().currentUser!.uid
         
         // add it to local UserVM
         self.dogs.append(dog)
         
         // create DB Dog doc
+        let storageManager = StorageManager()
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         let collectionRef = userRef.collection("userDogs")
           do {
             let newDogDocRef = try collectionRef.addDocument(from: dog)
-            print("dog is stored with new ref: \(newDogDocRef)")
+            storageManager.upload(image: profilePic, dogID: newDogDocRef.documentID)
           }
           catch {
             print(error)
           }
+    }
+    
+    func updateDog(dogID: String, name: String, breed: String, bio: String, age: String, profilePic: UIImage) {
+        
+        // create DB Dog doc
+        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        let collectionRef = userRef.collection("userDogs")
+        let dogDocRef = collectionRef.document(dogID)
+        
+        dogDocRef.updateData([
+            "name" : name,
+            "breed" : breed,
+            "bio" : bio,
+            "age" : age
+        ])
+        
+        //update photo
+        let storageManager = StorageManager()
+        storageManager.upload(image: profilePic, dogID: dogID)
+        
+        print("edited dog is stored with new ref: \(dogDocRef)")
+    }
+    
+    func deleteDog(dogID: String){
+        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        let collectionRef = userRef.collection("userDogs")
+        let dogDocRef = collectionRef.document(dogID)
+        
+        dogDocRef.delete()
     }
 }

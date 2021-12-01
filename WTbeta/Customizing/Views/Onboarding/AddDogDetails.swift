@@ -49,11 +49,16 @@ struct AddDogDetails: View {
                         CustomNumField(symbolName: "123.rectangle.fill", textFieldtext: "Age", userFieldEntry: $age)
                         
                         //NEXT BUTTON
-                        NavigationLink(
-                            destination: AddBio(name: name, breed: breed, age: age),
-                            label: {
-                                GlowRectangle(text: "Next")
-                            })
+                        if name != "" && age != "" && age != "" {
+                            NavigationLink(
+                                destination: AddBio(name: name, breed: breed, age: age),
+                                label: {
+                                    GlowRectangle(text: "Next")
+                                })
+                        } else {
+                            GlowRectangle(text: "Next")
+                                .opacity(0.5)
+                        }
                     }
                     .padding(20)
                 }

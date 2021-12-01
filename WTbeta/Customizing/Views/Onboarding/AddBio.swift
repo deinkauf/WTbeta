@@ -46,11 +46,16 @@ struct AddBio: View {
                     CustomTextField(symbolName: "plus.bubble", textFieldtext: "Make it fun!", userFieldEntry: $bio)
                     
                     //NEXT BUTTON
-                    NavigationLink(
-                        destination: AddPic(name: name, breed: breed, age: age, bio: bio),
-                        label: {
-                            GlowRectangle(text: "Next")
-                        })
+                    if bio != "" {
+                        NavigationLink(
+                            destination: AddPic(name: name, breed: breed, age: age, bio: bio),
+                            label: {
+                                GlowRectangle(text: "Next")
+                            })
+                    } else {
+                        GlowRectangle(text: "Next")
+                            .opacity(0.5)
+                    }
                 }
                 .padding(20)
             }

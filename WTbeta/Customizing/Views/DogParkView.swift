@@ -24,7 +24,7 @@ struct DogParkView: View {
                     DogParkCard(dogPark: dogParkVM.dogPark!, dogCount: dogParkVM.dogsCheckedIn.count)
                     ScrollView {
                         ForEach(dogParkVM.dogsCheckedIn) { dog in
-                            DogCard(dog: dog)
+                            DogCard(dog: dog, privateCard: false)
                         }
                     }
                 }

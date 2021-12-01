@@ -9,4 +9,5 @@ target 'WTbeta' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'FirebaseFirestoreSwift', '>7.0-beta'
+  pod 'FirebaseStorage'
 end

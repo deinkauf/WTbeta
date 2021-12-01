@@ -36,7 +36,7 @@ struct UserProfileView: View {
                         ScrollView(.horizontal) {
                             HStack {
                                 ForEach(self.userVM.dogs) { dog in
-                                    DogCard(dog: dog)
+                                    DogCard(dog: dog, privateCard: true)
                                 }
                             }.padding()
                         }
@@ -52,7 +52,6 @@ struct UserProfileView: View {
                     }
                 }
             }
-            
         }
 }
 
