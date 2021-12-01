@@ -14,8 +14,7 @@ struct SettingsView: View {
         
         var body: some View {
             Button {
-                try! Auth.auth().signOut()
-                self.model.loggedIn = false
+                model.signOut()
             } label: {
                 Text("sign out")
             }
