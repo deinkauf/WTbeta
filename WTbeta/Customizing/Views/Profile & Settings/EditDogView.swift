@@ -87,10 +87,10 @@ struct EditDogView: View {
                                     ActionSheet(title: Text("Choose a New Photo"), message: Text("Pick a photo you like"),
                                                 buttons: [
                                                     .default(Text("Camera")) {
-                                                        userVM.deleteDog(dogID: dogID)
+                                                        showCameraSheet = true
                                                     },
                                                     .default(Text("Library")) {
-                                                        userVM.deleteDog(dogID: dogID)
+                                                        showLibrarySheet = true
                                                     },
                                                     .cancel()
                                                 ])

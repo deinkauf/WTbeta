@@ -2,8 +2,8 @@ NOTES:
 
 // -- TODO
 
---Don--
-() add functions to dogPark
+Completed:
+(X) add functions to dogPark
     (X) clicking star to make default dogpark
     (X) create checkInButton()/checkOutButton()
     (X) function to check in
@@ -12,12 +12,10 @@ NOTES:
     (X) function to check out
         - same but vice versa (delete document)
     (X) conditional to display checkIn/checkOut if user.checkedIn
+
 (X) conditional for HomeView to display Default DogPark or CheckedInDogPark
     (X) adding CheckedInDogPark var to UserVM
 
-
-
---Mas--
 (X) Integrate Onboarding
     (X) add onboarding UI to create account pipeline (creating dog)
     (X) attach add dog function from userVM to onboarding UI
@@ -32,36 +30,58 @@ NOTES:
     (X) incorporate the addDog function from UserVM to add the Dog to the userDogs Subcollection
     (X) navigate user back to profile view when dog created from profile view
     
-() Enable Upload & Display of Dog Profile Pic with Dog Card
-    () Integrate StorageManager() into the Dog Creation in AddPic() View
-    () Double Check Image Folder / Name to ensure its unique to the dog
-    () Double Check Dog Profile Pic property to ensure type is compatible (if its even necessary)
-    () create conditional logic in DogCard() for profilePic (if nil, display pawprint)
+(X) Enable Upload & Display of Dog Profile Pic with Dog Card
+    (X) Integrate StorageManager() into the Dog Creation in AddPic() View
+    (X) Double Check Image Folder / Name to ensure its unique to the dog
+    (X) Double Check Dog Profile Pic property to ensure type is compatible (if its even necessary)
+    (X) create conditional logic in DogCard() for profilePic (if nil, display pawprint)
+
+(X) MapView Setup
+    (X) Get Users Current Location
+    (X) MKLocalSearch
+        - search for "DogParks" based on User's Location
+        - create DogPark() models from search results
+        - add them to the "dogParks" collection if not there already
+    (X) Add MapItems from Database "dogParks" based on location
+        - function to get dogParks "near me"
+    (X) Attach DogParkView()s to each mapItem (DogPark Items)
+        - .sheet?
+
+--DON--
+
+
+--MAS--
+() Create Settings View for User and User Prefereces
+    () Location Preferences
+    () Camera/Photo Access
+    - Manage User Preferences within Xcode/App settings as well
+
+() Check for Username/Email in db so user cannot create account with already existing login
+    () Run DB Query for emails/usernames in the User Collections
+    () Return an error handler statement to the user "Username/Email has already been used"
+
+()Midnight Checkout Function
+    - Look into creating a database function that sets all dogs to checkedOut when time == 00:00
 
 
 
 
 // -- IN DUE TIME
-() Create Settings View for User and User Preferences
-() Check for Username/Email already created
-() MidnightCheckout Function
-    - Could make it a database function that executes a checkout for all users/dogs within Firebase
-() MapView
-    () Get Users Current Location
-    () MKLocalSearch
-        - search for "DogParks" based on User's Location
-        - create DogPark() models from search results
-        - add them to the "dogParks" collection if not there already
-    () Add MapItems from Database "dogParks" based on location
-        - function to get dogParks "near me"
-    () Attach DogParkView()s to each mapItem (DogPark Items)
-        - .sheet?
-() -- If time permits --> Multi Dog CheckIn
-    - Dog Card Alignment - Geometry Reader?
-() Create App Icon
+() Function MapView to query based on distance / perimeter to user
+() Display dogCount on the DogPark Icons in MapView - if possible
+() Create & Upload App Icon
 () Asset Colors
 () Fancy UI updates
 () Unit Testing - Different Users, Invalid Data, Different Devices, Syncing Between DogParks / Dog Edits / Checkins & Checkouts
 () Devloper Membership
 
 () !!!!!!PUBLISH!!!!!!!!
+
+
+--- Clean Up To Do ----
+() Progress View for Loading Data Views
+() Change Placeholder image to white
+() Geometry Reader for UI
+() Align Typography
+() Make Bio Paragraph Size
+() Change image download from URL to in-memory by creating a dogVM or displayDog() class that holds the profilePic on login

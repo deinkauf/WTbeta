@@ -157,6 +157,7 @@ struct LoginView: View {
                     errorMessage = error!.localizedDescription
                     return
                 }
+                
                 //clear error message
                 self.errorMessage = nil
                 
@@ -178,9 +179,12 @@ struct LoginView: View {
             
             let db = Firestore.firestore()
             let userDoc = db.collection("users").document(currentUser.uid)
+            
+//            let loginDoc = db.collection("login").document(currentUser.uid)
+//
+//            loginDoc.setData(["email" : email, "userName" : userName])
+            
             userDoc.setData(["name" : trimmedName, "userName": userName])
-//            let dogDoc = userDoc.collection("userDogs").document()
-//            dogDoc.setData(["name":"testName"])
             
             // update user meta data
             let user = UserService.shared.user

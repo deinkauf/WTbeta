@@ -17,6 +17,8 @@ struct CreateDogView: View {
     
     @State var created: Bool = false
     
+    @State var isLoading: Bool = false
+    
     @State var dogID: String = ""
     @State var name: String = ""
     @State var breed: String = ""
@@ -116,35 +118,6 @@ struct CreateDogView: View {
                     }
                     Spacer()
                     
-//                    HStack(spacing: 16){
-//                        Spacer()
-//
-//                        //Camera Pic Upload Indicator
-//                        RoundedRectangle(cornerRadius: 16.0)
-//                            .foregroundColor(.white)
-//                            .frame(width: 75, height: 36)
-//                            .overlay(
-//                                Image(systemName: "camera.fill")
-//                                    .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.537254902, blue: 0.4823529412, alpha: 1)))
-//                            )
-//                            .onTapGesture {
-//                                showCameraSheet = true
-//                            }
-//                        
-//                        //Library Pic Upload Indicator
-//                        RoundedRectangle(cornerRadius: 16.0)
-//                            .foregroundColor(.white)
-//                            .frame(width: 75, height: 36)
-//                            .overlay(
-//                                Image("photo.fill.on.rectangle.fill")
-//                                    .foregroundColor(Color(#colorLiteral(red: 0.9803921569, green: 0.537254902, blue: 0.4823529412, alpha: 1)))
-//                            )
-//                            .onTapGesture {
-//                                showLibrarySheet = true
-//                            }
-//                        Spacer()
-//                    }
-                    
                     VStack(alignment: .leading) {
                         //DOG NAME
                         CustomTextField(symbolName: "pawprint.fill", textFieldtext: "Your Dog's Name", userFieldEntry: $name)
@@ -172,7 +145,6 @@ struct CreateDogView: View {
                         if name != "" && breed != "" && age != "" && bio != "" {
                             Button {
                                 userVM.createDog(name: name, breed: breed, bio: bio, age: age, profilePic: profilePic)
-                                self.presentationMode.wrappedValue.dismiss()
                             } label: {
                                 GlowRectangle(text: "Create")
                             }

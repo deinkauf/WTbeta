@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct UserProfileView: View {
+    
     @EnvironmentObject var userVM: UserVM
         
         var body: some View {

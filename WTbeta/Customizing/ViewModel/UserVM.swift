@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class UserVM: ObservableObject {
     
@@ -18,6 +19,8 @@ class UserVM: ObservableObject {
     @Published var loggedIn = false
     
     @Published var hasDefaultDogPark = false
+    
+    @Published var imagePathLoaded = false
     
     // toggle() to update UI
     @Published var updateUI: Bool = false
@@ -111,22 +114,45 @@ class UserVM: ObservableObject {
         dog.breed = breed
         dog.bio = bio
         dog.age = age
-        //dog.imageUrl = dogURL?.absoluteString
         dog.ownerID = Auth.auth().currentUser!.uid
         
         // add it to local UserVM
+        // COULD THIS BE NECESSARY IF WE USE getUserData()??
         self.dogs.append(dog)
         
         // create DB Dog doc
         let storageManager = StorageManager()
-        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        let userRef = self.db.collection("users").document(Auth.auth().currentUser!.uid)
         let collectionRef = userRef.collection("userDogs")
           do {
-            let newDogDocRef = try collectionRef.addDocument(from: dog)
-            storageManager.upload(image: profilePic, dogID: newDogDocRef.documentID)
+              let newDogDocRef = try collectionRef.addDocument(from: dog)
+              
+              storageManager.upload(image: profilePic, dogID: newDogDocRef.documentID)
+              dog.imagePath = "images/\(newDogDocRef.documentID).jpg"
+              let storage = Storage.storage()
+              let ref = storage.reference().child(dog.imagePath ?? "")
+              ref.getData(maxSize: 1 * 1024 * 1024) { imageData, error in
+                  if let error = error {
+                      print("-----------------UserVM imageURL Error --------------")
+                      print(error)
+                      print("-----------------UserVM imageURL Error --------------")
+                  }
+                  dog.imageData = imageData
+              }
+              DispatchQueue.main.async {
+                  newDogDocRef.setData([
+                    "imagePath" : dog.imagePath,
+                    "imageData" : dog.imageData
+                  ], merge: true)
+                  
+                  self.imagePathLoaded = true
+              }
+              
           }
           catch {
-            print(error)
+              print("-----------------Create Dog Error --------------")
+              print(error)
+              print("-----------------Create Dog Error --------------")
           }
     }
     

@@ -16,27 +16,17 @@ final class Loader : ObservableObject {
     @Published var data: Data?
 
     init(dog: Dog){
-        // the path to the image
-        let url = "images/\(dog.id ?? "").jpg"
         let storage = Storage.storage()
-        let ref = storage.reference().child(url)
+        let ref = storage.reference().child(dog.imagePath ?? "")
         ref.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
+                print("-----------------Loader Error --------------")
                 print("\(error)")
+                print("-----------------Loader Error --------------")
             }
 
             DispatchQueue.main.async {
                 self.data = data
-                if dog.imageData == nil {
-                    let db = Firestore.firestore()
-                    let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-                    let collectionRef = userRef.collection("userDogs")
-                    let dogDocRef = collectionRef.document(dog.id ?? "")
-                    
-                    dogDocRef.setData([
-                        "imageData" : data
-                    ], merge: true)
-                }
             }
         }
     }

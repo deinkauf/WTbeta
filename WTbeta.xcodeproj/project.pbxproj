@@ -173,8 +173,8 @@
 			children = (
 				930B131E2746024F0045AF27 /* Helpers */,
 				930B131D274602490045AF27 /* Models */,
-				930B131C274602400045AF27 /* Views */,
 				930B13052745B5A10045AF27 /* ViewModel */,
+				930B131C274602400045AF27 /* Views */,
 			);
 			path = Customizing;
 			sourceTree = "<group>";
