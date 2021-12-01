@@ -13,15 +13,16 @@ struct HomeView: View {
     @EnvironmentObject var userVM: UserVM
     
     var body: some View {
-        
-        if userVM.hasDefaultDogPark == false {
+        if userVM.checkedIn {
+            DogParkView(dogParkVM: DogParkVM(dogParkID: userVM.dogParkCheckedInto))
+        }
+        else if userVM.hasDefaultDogPark {
+            DogParkView(dogParkVM: DogParkVM(dogParkID: self.userVM.user.defaultDogParkID!))
+        } else {
             ProgressView()
                 .onAppear {
                     userVM.checkDefaultDogPark()
                 }
-            
-        } else {
-            DogParkView(dogParkVM: DogParkVM(dogParkID: self.userVM.user.defaultDogParkID!))
         }
     }
     

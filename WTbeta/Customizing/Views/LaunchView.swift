@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 
-struct CustomLaunchView: View {
+struct LaunchView: View {
     
     @EnvironmentObject var userVM: UserVM
     
@@ -22,18 +22,21 @@ struct CustomLaunchView: View {
                     self.userVM.checkLogin()
                 }
             
+        } else if userVM.dogs.isEmpty {
+            
+            AddDogDetails()
         }
         else {
             
-            CustomContentView()
+            ContentView()
             
         }
         
     }
 }
 
-struct CustomLaunchView_Previews: PreviewProvider {
+struct LaunchView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomLaunchView()
+        LaunchView()
     }
 }

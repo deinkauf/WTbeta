@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		092A36F827443D960017A51E /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A36F727443D960017A51E /* LaunchView.swift */; };
-		092A36FA274463450017A51E /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A36F9274463450017A51E /* LoginForm.swift */; };
-		092A36FC27446C000017A51E /* CreateAccountForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092A36FB27446C000017A51E /* CreateAccountForm.swift */; };
 		09B14E0327416975006E2E48 /* WTbetaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B14E0227416975006E2E48 /* WTbetaApp.swift */; };
-		09B14E0527416975006E2E48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B14E0427416975006E2E48 /* ContentView.swift */; };
 		09B14E0727416975006E2E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B14E0627416975006E2E48 /* Assets.xcassets */; };
 		09B14E0A27416975006E2E48 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09B14E0927416975006E2E48 /* Preview Assets.xcassets */; };
 		09B14E1127416FB9006E2E48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09B14E1027416FB9006E2E48 /* GoogleService-Info.plist */; };
@@ -27,15 +23,25 @@
 		09C174732748CA0200E31F74 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C174722748CA0200E31F74 /* Dog.swift */; };
 		09C174752748CF6600E31F74 /* CreateDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C174742748CF6600E31F74 /* CreateDogView.swift */; };
 		09D0301D274CA3AB005BA4A2 /* notes in Resources */ = {isa = PBXBuildFile; fileRef = 09D0301C274CA3AB005BA4A2 /* notes */; };
+		09FFAE8F2756B0F0005B6D15 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE8E2756B0F0005B6D15 /* LocationManager.swift */; };
+		09FFAE922757159D005B6D15 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE912757159D005B6D15 /* ImagePicker.swift */; };
+		09FFAE94275715AC005B6D15 /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE93275715AC005B6D15 /* FirebaseImage.swift */; };
+		09FFAE96275715BA005B6D15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE95275715BA005B6D15 /* Loader.swift */; };
+		09FFAE98275715CF005B6D15 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE97275715CF005B6D15 /* StorageManager.swift */; };
+		09FFAE9A2757163F005B6D15 /* CustomNumField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE992757163F005B6D15 /* CustomNumField.swift */; };
+		09FFAE9E27571731005B6D15 /* EditDogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE9D27571731005B6D15 /* EditDogView.swift */; };
+		09FFAEA027571789005B6D15 /* AddDogDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAE9F27571789005B6D15 /* AddDogDetails.swift */; };
+		09FFAEA227571793005B6D15 /* AddBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAEA127571793005B6D15 /* AddBio.swift */; };
+		09FFAEA42757179B005B6D15 /* AddPic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFAEA32757179B005B6D15 /* AddPic.swift */; };
 		8D6EAF209979F7866408AC76 /* Pods_WTbeta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5549AF77D96FE482B9DCB17 /* Pods_WTbeta.framework */; };
 		930B13012745B41E0045AF27 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13002745B41E0045AF27 /* LoginView.swift */; };
-		930B13042745B49E0045AF27 /* CustomLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13032745B49E0045AF27 /* CustomLaunchView.swift */; };
+		930B13042745B49E0045AF27 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13032745B49E0045AF27 /* LaunchView.swift */; };
 		930B13072745B5BB0045AF27 /* UserVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13062745B5BB0045AF27 /* UserVM.swift */; };
 		930B130D2745C2170045AF27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B130C2745C2170045AF27 /* Extensions.swift */; };
 		930B13122745C8BA0045AF27 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13112745C8BA0045AF27 /* CustomTextField.swift */; };
 		930B13142745C8C20045AF27 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13132745C8C20045AF27 /* Icon.swift */; };
 		930B13172745C8D60045AF27 /* GlowRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13162745C8D60045AF27 /* GlowRectangle.swift */; };
-		930B13192745CDEC0045AF27 /* CustomContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13182745CDEC0045AF27 /* CustomContentView.swift */; };
+		930B13192745CDEC0045AF27 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B13182745CDEC0045AF27 /* ContentView.swift */; };
 		930B131B2746013F0045AF27 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B131A2746013F0045AF27 /* UserService.swift */; };
 		930B1320274602DF0045AF27 /* IntroTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B131F274602DF0045AF27 /* IntroTabView.swift */; };
 		930B1322274D6FA30045AF27 /* DogPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930B1321274D6FA30045AF27 /* DogPark.swift */; };
@@ -43,12 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		092A36F727443D960017A51E /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
-		092A36F9274463450017A51E /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
-		092A36FB27446C000017A51E /* CreateAccountForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountForm.swift; sourceTree = "<group>"; };
 		09B14DFF27416975006E2E48 /* WTbeta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WTbeta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B14E0227416975006E2E48 /* WTbetaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WTbetaApp.swift; sourceTree = "<group>"; };
-		09B14E0427416975006E2E48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		09B14E0627416975006E2E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09B14E0927416975006E2E48 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09B14E1027416FB9006E2E48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -64,15 +66,25 @@
 		09C174722748CA0200E31F74 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dog.swift; path = WTbeta/Dog.swift; sourceTree = SOURCE_ROOT; };
 		09C174742748CF6600E31F74 /* CreateDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDogView.swift; sourceTree = "<group>"; };
 		09D0301C274CA3AB005BA4A2 /* notes */ = {isa = PBXFileReference; lastKnownFileType = text; path = notes; sourceTree = "<group>"; };
+		09FFAE8E2756B0F0005B6D15 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		09FFAE912757159D005B6D15 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		09FFAE93275715AC005B6D15 /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
+		09FFAE95275715BA005B6D15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		09FFAE97275715CF005B6D15 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		09FFAE992757163F005B6D15 /* CustomNumField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNumField.swift; sourceTree = "<group>"; };
+		09FFAE9D27571731005B6D15 /* EditDogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDogView.swift; sourceTree = "<group>"; };
+		09FFAE9F27571789005B6D15 /* AddDogDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDogDetails.swift; sourceTree = "<group>"; };
+		09FFAEA127571793005B6D15 /* AddBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBio.swift; sourceTree = "<group>"; };
+		09FFAEA32757179B005B6D15 /* AddPic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPic.swift; sourceTree = "<group>"; };
 		889042ECC0A39D82A644CD7C /* Pods-WTbeta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WTbeta.debug.xcconfig"; path = "Target Support Files/Pods-WTbeta/Pods-WTbeta.debug.xcconfig"; sourceTree = "<group>"; };
 		930B13002745B41E0045AF27 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		930B13032745B49E0045AF27 /* CustomLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLaunchView.swift; sourceTree = "<group>"; };
+		930B13032745B49E0045AF27 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		930B13062745B5BB0045AF27 /* UserVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVM.swift; sourceTree = "<group>"; };
 		930B130C2745C2170045AF27 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		930B13112745C8BA0045AF27 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		930B13132745C8C20045AF27 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		930B13162745C8D60045AF27 /* GlowRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowRectangle.swift; sourceTree = "<group>"; };
-		930B13182745CDEC0045AF27 /* CustomContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContentView.swift; sourceTree = "<group>"; };
+		930B13182745CDEC0045AF27 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		930B131A2746013F0045AF27 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		930B131F274602DF0045AF27 /* IntroTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroTabView.swift; sourceTree = "<group>"; };
 		930B1321274D6FA30045AF27 /* DogPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogPark.swift; sourceTree = "<group>"; };
@@ -116,10 +128,6 @@
 			children = (
 				09B14E0227416975006E2E48 /* WTbetaApp.swift */,
 				930B13022745B4640045AF27 /* Customizing */,
-				09B14E0427416975006E2E48 /* ContentView.swift */,
-				092A36F9274463450017A51E /* LoginForm.swift */,
-				092A36FB27446C000017A51E /* CreateAccountForm.swift */,
-				092A36F727443D960017A51E /* LaunchView.swift */,
 				09B14E0627416975006E2E48 /* Assets.xcassets */,
 				09B14E1027416FB9006E2E48 /* GoogleService-Info.plist */,
 				09B14E0827416975006E2E48 /* Preview Content */,
@@ -139,10 +147,44 @@
 		09B29474274DD6A4000710BB /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				930B13102745C8A10045AF27 /* Components */,
 				09B29475274DD6BD000710BB /* DogCard.swift */,
 				09B29479274DEA6B000710BB /* DogParkCard.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		09FFAE902757154B005B6D15 /* ImageSupport */ = {
+			isa = PBXGroup;
+			children = (
+				09FFAE912757159D005B6D15 /* ImagePicker.swift */,
+				09FFAE93275715AC005B6D15 /* FirebaseImage.swift */,
+				09FFAE95275715BA005B6D15 /* Loader.swift */,
+			);
+			path = ImageSupport;
+			sourceTree = "<group>";
+		};
+		09FFAE9B275716DB005B6D15 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				930B131F274602DF0045AF27 /* IntroTabView.swift */,
+				930B13002745B41E0045AF27 /* LoginView.swift */,
+				09FFAE9F27571789005B6D15 /* AddDogDetails.swift */,
+				09FFAEA127571793005B6D15 /* AddBio.swift */,
+				09FFAEA32757179B005B6D15 /* AddPic.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		09FFAE9C275716E9005B6D15 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				09B29469274D6A37000710BB /* UserProfileView.swift */,
+				09C174742748CF6600E31F74 /* CreateDogView.swift */,
+				09FFAE9D27571731005B6D15 /* EditDogView.swift */,
+				09B29472274DD692000710BB /* SettingsView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		59A0081E8B9F45530E38C234 /* Pods */ = {
@@ -189,6 +231,7 @@
 				930B13112745C8BA0045AF27 /* CustomTextField.swift */,
 				930B13132745C8C20045AF27 /* Icon.swift */,
 				930B13162745C8D60045AF27 /* GlowRectangle.swift */,
+				09FFAE992757163F005B6D15 /* CustomNumField.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -196,17 +239,13 @@
 		930B131C274602400045AF27 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				930B13032745B49E0045AF27 /* LaunchView.swift */,
+				930B13182745CDEC0045AF27 /* ContentView.swift */,
+				09FFAE9B275716DB005B6D15 /* Onboarding */,
+				09FFAE9C275716E9005B6D15 /* Profile */,
 				09B29474274DD6A4000710BB /* SubViews */,
-				930B13102745C8A10045AF27 /* Components */,
-				930B13182745CDEC0045AF27 /* CustomContentView.swift */,
-				09C174742748CF6600E31F74 /* CreateDogView.swift */,
-				930B13032745B49E0045AF27 /* CustomLaunchView.swift */,
-				930B13002745B41E0045AF27 /* LoginView.swift */,
-				930B131F274602DF0045AF27 /* IntroTabView.swift */,
 				09B29465274D69E9000710BB /* HomeView.swift */,
 				09B29467274D6A11000710BB /* MapView.swift */,
-				09B29469274D6A37000710BB /* UserProfileView.swift */,
-				09B29472274DD692000710BB /* SettingsView.swift */,
 				09B29477274DEA1C000710BB /* DogParkView.swift */,
 			);
 			path = Views;
@@ -225,8 +264,11 @@
 		930B131E2746024F0045AF27 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				09FFAE902757154B005B6D15 /* ImageSupport */,
 				930B131A2746013F0045AF27 /* UserService.swift */,
 				930B130C2745C2170045AF27 /* Extensions.swift */,
+				09FFAE8E2756B0F0005B6D15 /* LocationManager.swift */,
+				09FFAE97275715CF005B6D15 /* StorageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -347,33 +389,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09FFAE9A2757163F005B6D15 /* CustomNumField.swift in Sources */,
 				930B131B2746013F0045AF27 /* UserService.swift in Sources */,
-				930B13192745CDEC0045AF27 /* CustomContentView.swift in Sources */,
+				930B13192745CDEC0045AF27 /* ContentView.swift in Sources */,
 				930B13012745B41E0045AF27 /* LoginView.swift in Sources */,
+				09FFAE9E27571731005B6D15 /* EditDogView.swift in Sources */,
 				09C174752748CF6600E31F74 /* CreateDogView.swift in Sources */,
+				09FFAEA42757179B005B6D15 /* AddPic.swift in Sources */,
 				09B29466274D69E9000710BB /* HomeView.swift in Sources */,
+				09FFAEA027571789005B6D15 /* AddDogDetails.swift in Sources */,
 				930B130D2745C2170045AF27 /* Extensions.swift in Sources */,
+				09FFAE8F2756B0F0005B6D15 /* LocationManager.swift in Sources */,
+				09FFAE94275715AC005B6D15 /* FirebaseImage.swift in Sources */,
 				09B29476274DD6BD000710BB /* DogCard.swift in Sources */,
 				09C1747127489D5700E31F74 /* User.swift in Sources */,
 				09B2946C274D6B78000710BB /* MapVM.swift in Sources */,
 				09B2946A274D6A37000710BB /* UserProfileView.swift in Sources */,
 				09B29478274DEA1C000710BB /* DogParkView.swift in Sources */,
-				092A36FC27446C000017A51E /* CreateAccountForm.swift in Sources */,
 				930B13072745B5BB0045AF27 /* UserVM.swift in Sources */,
 				930B13172745C8D60045AF27 /* GlowRectangle.swift in Sources */,
 				09B2947A274DEA6B000710BB /* DogParkCard.swift in Sources */,
 				930B13122745C8BA0045AF27 /* CustomTextField.swift in Sources */,
+				09FFAEA227571793005B6D15 /* AddBio.swift in Sources */,
 				09C174732748CA0200E31F74 /* Dog.swift in Sources */,
-				09B14E0527416975006E2E48 /* ContentView.swift in Sources */,
-				930B13042745B49E0045AF27 /* CustomLaunchView.swift in Sources */,
-				092A36F827443D960017A51E /* LaunchView.swift in Sources */,
+				930B13042745B49E0045AF27 /* LaunchView.swift in Sources */,
 				09B14E0327416975006E2E48 /* WTbetaApp.swift in Sources */,
 				930B1322274D6FA30045AF27 /* DogPark.swift in Sources */,
+				09FFAE98275715CF005B6D15 /* StorageManager.swift in Sources */,
 				930B1320274602DF0045AF27 /* IntroTabView.swift in Sources */,
 				09B29468274D6A11000710BB /* MapView.swift in Sources */,
-				092A36FA274463450017A51E /* LoginForm.swift in Sources */,
 				930B1326274D8A9C0045AF27 /* DogParkVM.swift in Sources */,
+				09FFAE922757159D005B6D15 /* ImagePicker.swift in Sources */,
 				930B13142745C8C20045AF27 /* Icon.swift in Sources */,
+				09FFAE96275715BA005B6D15 /* Loader.swift in Sources */,
 				09B29473274DD692000710BB /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,6 +557,9 @@
 				DEVELOPMENT_TEAM = HP6H72HN7Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Waggin Tails requires your location for the sole purpose of locating dog parks near you.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Waggin Tails requires your location for the sole purpose of locating dog parks near you.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Waggin Tails requires your location for the sole purpose of locating dog parks near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -540,6 +591,9 @@
 				DEVELOPMENT_TEAM = HP6H72HN7Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Waggin Tails requires your location for the sole purpose of locating dog parks near you.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Waggin Tails requires your location for the sole purpose of locating dog parks near you.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Waggin Tails requires your location for the sole purpose of locating dog parks near you.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

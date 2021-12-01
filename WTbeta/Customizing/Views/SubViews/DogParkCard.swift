@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DogParkCard: View {
     
+    @EnvironmentObject var userVM: UserVM
     var dogPark: DogPark
     var dogCount: Int
     
@@ -48,9 +49,12 @@ struct DogParkCard: View {
                         VStack(alignment: .trailing) {
                             ZStack {
                                 //Star
-                                Image(systemName: "star")
+                                Image(systemName: userVM.user.defaultDogParkID == dogPark.id ? "star.fill" : "star")
                                     .foregroundColor(.white)
                                     .frame(width: 24, height: 24)
+                                    .onTapGesture {
+                                        userVM.user.defaultDogParkID == dogPark.id ? userVM.removeDefaultDogPark() : userVM.setDefaultDogPark(dogParkID: dogPark.id!)
+                                    }
                             }
                             Spacer()
                             ZStack {
@@ -68,8 +72,6 @@ struct DogParkCard: View {
                 )
                 
         }
-        
-        
     }
 }
 

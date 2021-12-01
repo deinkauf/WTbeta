@@ -11,7 +11,7 @@ import SwiftUI
 import FirebaseAuth
 import Firebase
 
-struct CustomContentView: View {
+struct ContentView: View {
     
     @EnvironmentObject var userVM: UserVM
     
@@ -36,9 +36,9 @@ struct CustomContentView: View {
     }
 }
 
-struct CustomContentView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomContentView()
+        ContentView()
             .environmentObject(UserVM())
     }
 }
