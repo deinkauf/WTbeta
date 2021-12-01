@@ -26,7 +26,7 @@ struct DogCard: View {
                             
                             VStack(alignment: .leading){
                                 //Profile Picture
-//                                FirebaseImage(dog: dog)
+                                FirebaseImage(dog: dog)
                                                 
                                 Spacer()
                                 Spacer()

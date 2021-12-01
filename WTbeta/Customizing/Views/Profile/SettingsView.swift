@@ -10,12 +10,11 @@ import Firebase
 import FirebaseAuth
 
 struct SettingsView: View {
-    @EnvironmentObject var model: UserVM
+    @EnvironmentObject var userVM: UserVM
         
         var body: some View {
             Button {
-                try! Auth.auth().signOut()
-                self.model.loggedIn = false
+                userVM.signOut()
             } label: {
                 Text("sign out")
             }

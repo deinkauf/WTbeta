@@ -53,6 +53,16 @@ class UserVM: ObservableObject {
         hasDefaultDogPark = user.defaultDogParkID != nil ? true : false
     }
     
+    func signOut() {
+        dogs.removeAll()
+        dogsCheckingIn.removeAll()
+        loggedIn = false
+        hasDefaultDogPark = false
+        checkedIn = false
+        dogParkCheckedInto = ""
+        try! Auth.auth().signOut()
+    }
+    
     // MARK -- Data Methods
     
     func getUserData() {
