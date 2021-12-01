@@ -76,9 +76,13 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
         case .denied:
             print("show alert: location is denied. need to grant access to use.")
         case .authorizedAlways, .authorizedWhenInUse:
-            region = MKCoordinateRegion(center: locationManager.location!.coordinate,
-                                        span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
-            searchForDogParksNearUser()
+            if locationManager.location != nil {
+                region = MKCoordinateRegion(center: locationManager.location!.coordinate,
+                                            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+                searchForDogParksNearUser()
+            }
+            
+            
             // then to actually display these on the map, we will pull from firestore.
             // that way, we can control the distance, how many dog parks to display,
             // and also display dogparks that were added that arent on apple maps
