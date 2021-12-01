@@ -40,7 +40,7 @@ struct DogParkCard: View {
                             Text("Hours: 8am - 8pm").font(.system(size: 12, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.7)))
                             
                             //3021 University Park Dr.
-                            Text("3021 University Park Dr.").font(.system(size: 12, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+                            Text(dogPark.address ?? "").font(.system(size: 12, weight: .bold)).foregroundColor(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
                         }
                         .padding(15)
                         

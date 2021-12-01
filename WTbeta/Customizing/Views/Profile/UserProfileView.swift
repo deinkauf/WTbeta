@@ -37,6 +37,7 @@ struct UserProfileView: View {
                             HStack {
                                 ForEach(self.userVM.dogs) { dog in
                                     DogCard(dog: dog, privateCard: true)
+
                                 }
                             }.padding()
                         }

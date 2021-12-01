@@ -107,7 +107,14 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
 
             for item in response.mapItems {
                 print("------hash value = \(String(item.hashValue))")
-                let dogPark = DogPark(id: String(item.hashValue), name: item.name, location: GeoPoint(latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude))
+                let dogPark = DogPark(
+                                    id: String(item.hashValue),
+                                    name: item.name,
+                                    location: GeoPoint(
+                                        latitude: item.placemark.location!.coordinate.latitude,
+                                        longitude: item.placemark.location!.coordinate.longitude),
+                                    address: "\(item.placemark.subThoroughfare ?? "") \(item.placemark.thoroughfare ?? "")"
+                                    )
                 dogParkSearchResults.append(dogPark)
             }
 

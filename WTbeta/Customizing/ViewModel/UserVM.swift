@@ -9,6 +9,8 @@ import Foundation
 import Firebase
 import FirebaseAuth
 import FirebaseFirestoreSwift
+import FirebaseStorage
+import UIKit
 
 class UserVM: ObservableObject {
     
@@ -27,6 +29,8 @@ class UserVM: ObservableObject {
     @Published var checkedIn = false
     
     @Published var dogParkCheckedInto = ""
+    
+    @Published var dogImageLoaded = false
     
     var user = UserService.shared.user
     
@@ -60,6 +64,10 @@ class UserVM: ObservableObject {
         hasDefaultDogPark = false
         checkedIn = false
         dogParkCheckedInto = ""
+        user.defaultDogParkID = nil
+        user.name = nil
+        user.id = nil
+        user.userName = nil
         try! Auth.auth().signOut()
     }
     
@@ -118,6 +126,10 @@ class UserVM: ObservableObject {
     // MARK -- Dog Data Methods
     
     func createDog(name: String, breed: String, bio: String, age: String, profilePic: UIImage) {
+        
+        guard Auth.auth().currentUser != nil else {
+            return
+        }
         // create local Dog model
         let dog = Dog()
         dog.name = name
@@ -129,51 +141,100 @@ class UserVM: ObservableObject {
         // add it to local UserVM
         self.dogs.append(dog)
         
-        let db = Firestore.firestore()
-        
         // create DB Dog doc
+        let db = Firestore.firestore()
         let storageManager = StorageManager()
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         let collectionRef = userRef.collection("userDogs")
-          do {
+        do {
             let newDogDocRef = try collectionRef.addDocument(from: dog)
             storageManager.upload(image: profilePic, dogID: newDogDocRef.documentID)
-          }
-          catch {
+            dog.imagePath = "images/\(newDogDocRef.documentID).jpg"
+            let storage = Storage.storage()
+            let ref = storage.reference().child(dog.imagePath ?? "")
+            ref.getData(maxSize: 1 * 1024 * 1024) { imageData, error in
+                if let error = error {
+                    print("-------------UserVM image url error---------------")
+                    print(error)
+                    print("-------------UserVM image url error---------------")
+                }
+                dog.imageData = imageData
+            }
+            DispatchQueue.main.async {
+                newDogDocRef.setData([
+                    "imagePath" : dog.imagePath,
+                    "imageData" : dog.imageData
+                ], merge: true)
+                
+                
+            }
+        }
+        catch {
+            print("-------------create dog error---------------")
             print(error)
-          }
+            print("-------------create dog error---------------")
+        }
     }
     
-    func updateDog(dogID: String, name: String, breed: String, bio: String, age: String, profilePic: UIImage) {
+    func updateDog(dogID: String, name: String, breed: String, bio: String, age: String, profilePic: UIImage, imagePath: String) {
+        
+
+        var newImageData: Data?
         
         // create DB Dog doc
         let db = Firestore.firestore()
         let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         let collectionRef = userRef.collection("userDogs")
         let dogDocRef = collectionRef.document(dogID)
+        //update photo
+        let storageManager = StorageManager()
+        storageManager.upload(image: profilePic, dogID: dogDocRef.documentID)
+        // fetch photo data
+        let storage = Storage.storage()
+        let ref = storage.reference().child(imagePath)
+        ref.getData(maxSize: 1 * 1024 * 1024) { imageData, error in
+            if let error = error {
+                print("-------------UserVM image url error---------------")
+                print(error)
+                print("-------------UserVM image url error---------------")
+            }
+            if let imageData = imageData {
+                newImageData = imageData
+            }
+        }
         
         dogDocRef.updateData([
             "name" : name,
             "breed" : breed,
             "bio" : bio,
-            "age" : age
+            "age" : age,
+            "imageData" : newImageData
         ])
-        
-        //update photo
-        let storageManager = StorageManager()
-        storageManager.upload(image: profilePic, dogID: dogID)
         
         print("edited dog is stored with new ref: \(dogDocRef)")
     }
         
-        func deleteDog(dogID: String){
-            let db = Firestore.firestore()
-            let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-            let collectionRef = userRef.collection("userDogs")
-            let dogDocRef = collectionRef.document(dogID)
-            
-            dogDocRef.delete()
+    func deleteDog(dogID: String){
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        let collectionRef = userRef.collection("userDogs")
+        let dogDocRef = collectionRef.document(dogID)
+        let storage = Storage.storage()
+        let dogStorRef = storage.reference().child(dogDocRef.documentID)
+        
+        dogStorRef.delete { error in
+            if let error = error {
+                print("-------File Deletion Error----------")
+                print(error)
+                print("-------File Deletion Error----------")
+            } else {
+                print("File Deleted Successfully")
+            }
         }
+        
+        dogDocRef.delete()
+    }
+    
     
     // Mark -- DogPark Data Methods
     

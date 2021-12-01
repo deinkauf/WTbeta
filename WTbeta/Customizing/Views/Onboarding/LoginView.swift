@@ -29,8 +29,8 @@ struct LoginView: View {
         
         ZStack {
             
-            backgroundColor
-                .ignoresSafeArea(edges: .all)
+//            backgroundColor
+//                .ignoresSafeArea(edges: .all)
             
             VStack {
                 VStack(alignment: .leading, spacing: 16){

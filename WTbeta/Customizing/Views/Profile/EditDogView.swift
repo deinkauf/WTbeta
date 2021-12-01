@@ -24,6 +24,7 @@ struct EditDogView: View {
     @State var breed: String = ""
     @State var age: String = ""
     @State var bio: String = ""
+    @State var imagePath: String = ""
     
     //assign to dogs current pic
     var placeholder: String = "pawprint.circle"
@@ -86,10 +87,10 @@ struct EditDogView: View {
                                     ActionSheet(title: Text("Choose a New Photo"), message: Text("Pick a photo you like"),
                                                 buttons: [
                                                     .default(Text("Camera")) {
-                                                        userVM.deleteDog(dogID: dogID)
+                                                        showCameraSheet = true
                                                     },
                                                     .default(Text("Library")) {
-                                                        userVM.deleteDog(dogID: dogID)
+                                                        showLibrarySheet = true
                                                     },
                                                     .cancel()
                                                 ])
@@ -150,7 +151,7 @@ struct EditDogView: View {
                             
                             if name != "" && breed != "" && age != "" && bio != "" {
                                 Button {
-                                    userVM.updateDog(dogID: dogID, name: name, breed: breed, bio: bio, age: age, profilePic: profilePic)
+                                    userVM.updateDog(dogID: dogID, name: name, breed: breed, bio: bio, age: age, profilePic: profilePic, imagePath: imagePath)
                                     self.presentationMode.wrappedValue.dismiss()
                                 } label: {
                                     GlowRectangle(text: "Update")
@@ -167,7 +168,7 @@ struct EditDogView: View {
                                     self.deleteDialog = true
                                 }
                                 .actionSheet(isPresented: $deleteDialog) {
-                                    ActionSheet(title: Text("Title"), message: Text("Message"),
+                                    ActionSheet(title: Text("Are you sure you want to delete dog?"),
                                                 buttons: [
                                                     .default(Text("Delete")) {
                                                         userVM.deleteDog(dogID: dogID)

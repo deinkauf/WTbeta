@@ -27,8 +27,8 @@ struct FirebaseImage : View {
         Image(uiImage: image ?? placeholder)
             .resizable()
             .cornerRadius(50)
-            .frame(width: 80, height: 80)
             .foregroundColor(.white)
+            .frame(width: 80, height: 80)
             .aspectRatio(contentMode: .fill)
             .clipShape(Circle())
     }

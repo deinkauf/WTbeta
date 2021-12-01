@@ -31,8 +31,8 @@ struct AddPic: View {
     var body: some View {
         ZStack {
             
-            backgroundColor
-                .ignoresSafeArea(edges: .all)
+//            backgroundColor
+//                .ignoresSafeArea(edges: .all)
             
             VStack {
                 VStack(spacing: 16) {

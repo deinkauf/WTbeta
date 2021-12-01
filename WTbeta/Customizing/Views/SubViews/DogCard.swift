@@ -57,7 +57,7 @@ struct DogCard: View {
                                     HStack {
                                         //Edit Icon
                                         NavigationLink(
-                                            destination: EditDogView(dogID: dog.id ?? "", name: dog.name ?? "", breed: dog.breed ?? "", age: dog.age ?? "", bio: dog.bio ?? ""),
+                                            destination: EditDogView(dogID: dog.id ?? "", name: dog.name ?? "", breed: dog.breed ?? "", age: dog.age ?? "", bio: dog.bio ?? "", imagePath: dog.imagePath ?? ""),
                                             label: {
                                                 Image(systemName: "square.and.pencil")
                                                     .foregroundColor(.white)

@@ -59,7 +59,7 @@ struct DogParkView: View {
         Circle()
             .frame(width: 60, height: 60)
             .foregroundColor(userVM.checkedIn || dogsCheckedIn() ? .red : .green)
-            .opacity(0.5)
+//            .opacity(0.5)
             .padding(.vertical)
             .overlay(
                 Image(systemName: userVM.checkedIn || dogsCheckedIn() ? "xmark" : "checkmark")
@@ -74,28 +74,32 @@ struct DogParkView: View {
     var dogSelectionView: some View {
         ZStack(alignment: .bottomTrailing) {
             VStack {
-                ForEach(userVM.dogs) { dog in
-                    Button {
-                        dogSelect(dog: dog)
-                    } label: {
-                        DogCard(dog: dog)
-                            .opacity(dogsCheckingIn.contains(where: { d in d.id == dog.id }) ? 0.5:1)
-                    }
+                ScrollView {
+                    ForEach(userVM.dogs) { dog in
+                        Button {
+                            dogSelect(dog: dog)
+                        } label: {
+                            DogCard(dog: dog)
+                                .opacity(dogsCheckingIn.contains(where: { d in d.id == dog.id }) ? 0.5:1)
+                        }
 
-    //                DogCard(dog: dog)
-    //                    .opacity(userVM.dogsCheckingIn.contains(where: { d in d.id == dog.id }) ? 1:0.5)
-    //                    .onTapGesture {
-    //                        userVM.dogsCheckingIn.contains(where: { d in d.id == dog.id }) ?
-    //                        userVM.removeFromDogsCheckingIn(dog: dog) : userVM.addToDogsCheckingIn(dog: dog)
-    //                    }
+        //                DogCard(dog: dog)
+        //                    .opacity(userVM.dogsCheckingIn.contains(where: { d in d.id == dog.id }) ? 1:0.5)
+        //                    .onTapGesture {
+        //                        userVM.dogsCheckingIn.contains(where: { d in d.id == dog.id }) ?
+        //                        userVM.removeFromDogsCheckingIn(dog: dog) : userVM.addToDogsCheckingIn(dog: dog)
+        //                    }
+                    }
                 }
+                .padding(.top, 60)
             }
-            
-            circleButton
-                .offset(y: 100)
-                .onTapGesture {
-                    checkIn()
-                }
+            if !dogsCheckingIn.isEmpty {
+                circleButton
+    //                .offset(y: 70)
+                    .onTapGesture {
+                        checkIn()
+                    }
+            }
         }
     }
     
