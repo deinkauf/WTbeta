@@ -77,7 +77,7 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
             print("show alert: location is denied. need to grant access to use.")
         case .authorizedAlways, .authorizedWhenInUse:
             if locationManager.location != nil {
-                region = MKCoordinateRegion(center: locationManager.location!.coordinate,
+                region = MKCoordinateRegion(center: locationManager.location?.coordinate ?? printError(),
                                             span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
                 searchForDogParksNearUser()
             }
@@ -164,6 +164,11 @@ class MapVM: NSObject, ObservableObject, CLLocationManagerDelegate {
     func distanceFromUser(dogParkLocation: GeoPoint) {
         // -- this will compare the latitude and longitude of the dogpark to the user's location
         //    and calculate the distance between the two -> returning a boolean true if the distance is < our decided distance
+    }
+    
+    func printError() -> CLLocationCoordinate2D {
+        print("--------ERROR --error in mapVM")
+        return self.region.center
     }
     
     

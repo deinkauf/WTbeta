@@ -150,10 +150,10 @@ struct DogParkView: View {
     }
 }
 
-//struct DogParkView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DogParkView(dogParkVM: DogParkVM(dogParkID: "4cyDRp7hcMnO0jwfc5XU"))
-//    }
-//}
+struct DogParkView_Previews: PreviewProvider {
+    static var previews: some View {
+        DogParkView(dogParkVM: DogParkVM(dogParkID: "4cyDRp7hcMnO0jwfc5XU"))
+    }
+}
 
 

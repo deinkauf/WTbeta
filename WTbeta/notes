@@ -16,6 +16,10 @@ NOTES:
     () adding CheckedInDogPark var to UserVM
 
 
+-- 12/6
+--- TODO
+() replace ! with proper error handling
+
 
 --Mas--
 () navigate user back to profile view when dog created from profile view
