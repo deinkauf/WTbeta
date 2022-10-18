@@ -22,8 +22,8 @@ struct MapView: View {
             Map(coordinateRegion: $mapVM.region , showsUserLocation: true, annotationItems: mapVM.dogParks) {
                 item in
                 
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: item.location!.latitude,
-                                                                 longitude: item.location!.longitude)) {
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: item.location?.latitude ?? printError(),
+                                                                 longitude: item.location?.longitude ?? printError())) {
                     
                     let dogParkVM = DogParkVM(dogParkID: item.id!)
                     NavigationLink {
@@ -49,6 +49,13 @@ struct MapView: View {
             
         }
         
+        
+        
+    }
+    
+    func printError() -> Double {
+        print("-----ERROR----- error in mapView printing location coordinate nil" )
+        return 0
     }
     
     func fetchData() {
