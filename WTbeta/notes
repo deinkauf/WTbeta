@@ -1,0 +1,48 @@
+NOTES:
+
+// -- TODO
+
+--Don--
+() add functions to dogPark
+    (x) clicking star to make default dogpark
+    () create checkInButton()/checkOutButton()
+    () function to check in
+        - dogParkVM.checkInDog(dog: Dog)
+        - db.collection("dogParks").document(dogParkID).collection("checkedInDogs").addDocument(from: Dog.self)
+    () function to check out
+        - same but vice versa (delete document)
+    () conditional to display checkIn/checkOut if user.checkedIn
+() conditional for HomeView to display Default DogPark or CheckedInDogPark
+    () adding CheckedInDogPark var to UserVM
+
+
+
+--Mas--
+() navigate user back to profile view when dog created from profile view
+() make edit dog function
+() attach to edit dog view (1 page view)
+() create conditional display of edit button in dog park card (thi smay entail public/private cards?)
+() add onboarding UI to create account pipeline (creating dog)
+() attach add dog function from userVM to onboarding UI
+() create logic in DogCard() (conditional for profile image, etc.)
+
+
+// -- IN DUE TIME
+
+() MapView
+    () Get Users Current Location
+    () MKLocalSearch
+        - search for "DogParks" based on User's Location
+        - create DogPark() models from search results
+        - add them to the "dogParks" collection if not there already
+    () Add MapItems from Database "dogParks" based on location
+        - function to get dogParks "near me"
+    () Attach DogParkView()s to each mapItem (DogPark Items)
+        - .sheet?
+() Create App Icon
+() Asset Colors
+() Fancy UI updates
+() Unit Testing
+() Devloper Membership
+
+() !!!!!!PUBLISH!!!!!!!!
